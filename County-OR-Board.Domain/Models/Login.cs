@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace County_OR_Board.Domain
@@ -12,5 +13,8 @@ namespace County_OR_Board.Domain
         
         [Required]
         public string Password { get; set; }
+
+        [Required]
+        public DateTime CreationDateTime { get; set; }
     }
 }
