@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace County_OR_Board.Domain
+namespace County_OR_Board.Domain.Models
 {
     class Procedure
     {

@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace County_OR_Board.Domain
+namespace County_OR_Board.Domain.Models
 {
     class Login
     {
