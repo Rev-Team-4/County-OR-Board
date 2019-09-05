@@ -4,7 +4,7 @@ using County_OR_Board.Domain.Abstracts;
 
 namespace County_OR_Board.Domain
 {
-  public class Anesthetist : User
+  public class Anesthetist : AUser
   {
         [Key]
         public int AnesthetistId { get; set; }

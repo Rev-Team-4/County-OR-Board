@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace County_OR_Board.Domain.Abstracts
 {
-    public abstract class User
+    public abstract class AUser
     {
         [ForeignKey("LoginId")]
         public int LoginId { get; set; }
