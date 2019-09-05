@@ -16,6 +16,9 @@ namespace County_OR_Board.Domain.Models
         public int LicenseNumber { get; set; }
 
         [Required]
+        public string LicenseState { get; set; }
+
+        [Required]
         public bool LicenseStatus { get; set; }
 
         [Required]
