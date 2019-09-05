@@ -5,4 +5,9 @@
     <RootNamespace>County_OR_Board.Domain</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="microsoft.entityframeworkcore" Version="2.2.6" />
+    <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="2.2.6" />
+  </ItemGroup>
+
 </Project>
