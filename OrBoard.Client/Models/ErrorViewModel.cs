@@ -1,6 +1,6 @@
 using System;
 
-namespace County_OR_Board.Client.Models
+namespace OrBoard.Client.Models
 {
     public class ErrorViewModel
     {

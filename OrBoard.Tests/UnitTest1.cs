@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace County_OR_Board.Tests
+namespace OrBoard.Tests
 {
     public class UnitTest1
     {

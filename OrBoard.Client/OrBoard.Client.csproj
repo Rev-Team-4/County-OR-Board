@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-    <RootNamespace>County_OR_Board.Client</RootNamespace>
   </PropertyGroup>
 
 
@@ -14,8 +13,8 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\County-OR-Board.Domain\County-OR-Board.Domain.csproj" />
-    <ProjectReference Include="..\County-OR-Board.Data\County-OR-Board.Data.csproj" />
+    <ProjectReference Include="..\OrBoard.Domain\OrBoard.Domain.csproj" />
+    <ProjectReference Include="..\OrBoard.Data\OrBoard.Data.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\County-OR-Board.Domain\County-OR-Board.Domain.csproj" />
+    <ProjectReference Include="..\OrBoard.Domain\OrBoard.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,7 +16,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>County_OR_Board.Data</RootNamespace>
   </PropertyGroup>
 
 </Project>

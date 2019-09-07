@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using County_OR_Board.Client.Models;
+using OrBoard.Client.Models;
 
-namespace County_OR_Board.Client.Controllers
+namespace OrBoard.Client.Controllers
 {
     public class HomeController : Controller
     {
