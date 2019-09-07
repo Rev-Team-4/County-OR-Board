@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace County_OR_Board.Domain
+namespace OrBoard.Domain.Models
 {
     public class Hospital
     {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrBoard.Domain.Models
 {
-    class Procedure
+    public class Procedure
     {
         [Key]
         public int ProcedureId { get; set; }

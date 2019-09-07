@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OrBoard.Domain.Models
 {
-    class Login
+    public class Login
     {
         [Key]
         public int LoginId { get; set; }
