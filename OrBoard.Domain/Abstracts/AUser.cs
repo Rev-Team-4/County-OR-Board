@@ -9,9 +9,11 @@ namespace OrBoard.Domain.Abstracts
         public int LoginId { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string FirstName { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string LastName { get; set; }
 
         [Phone]
@@ -23,15 +25,19 @@ namespace OrBoard.Domain.Abstracts
         public string Email { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string StreetAddress { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string City { get; set; }
 
         [Required]
+        [MaxLength(50)]
         public string State { get; set; }
 
         [Required]
-        public string Zip { get; set; }
+        [DataType(DataType.PostalCode)]
+        public int Zip { get; set; }
     }
 }
