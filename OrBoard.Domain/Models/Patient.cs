@@ -5,10 +5,15 @@ namespace OrBoard.Domain.Models
 {
     public class Patient : AUser
     {
-        [Required]
+        [Key]
         public int PatientId { get; set; }
 
         [Required]
+        [Range(0,int.MaxValue)]
+        public int Age { get; set; }
+
+        [Required]
+        [MaxLength(10)]
         public string Gender { get; set; }
     }
 }
