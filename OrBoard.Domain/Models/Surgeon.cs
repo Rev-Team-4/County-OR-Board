@@ -4,7 +4,7 @@ using OrBoard.Domain.Abstracts;
 
 namespace OrBoard.Domain.Models
 {
-    public class Surgeon : AUser
+    public class Surgeon : ADoctor
     {
         [Key]
         public int SurgeonId { get; set; }
