@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/County-OR-Board.Client/bin/Debug/netcoreapp2.2/County-OR-Board.Client.dll",
+            "program": "${workspaceFolder}/OrBoard.Client/bin/Debug/netcoreapp2.2/OrBoard.Client.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/County-OR-Board.Client",
+            "cwd": "${workspaceFolder}/OrBoard.Client",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {

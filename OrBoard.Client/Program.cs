@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace County_OR_Board.Client
+namespace OrBoard.Client
 {
     public class Program
     {

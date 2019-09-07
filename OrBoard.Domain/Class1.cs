@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace County_OR_Board.Data
+namespace OrBoard.Domain
 {
     public class Class1
     {

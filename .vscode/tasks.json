@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/County-OR-Board.Client/County-OR-Board.Client.csproj",
+                "${workspaceFolder}/OrBoard.Client/OrBoard.Client.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/County-OR-Board.Client/County-OR-Board.Client.csproj",
+                "${workspaceFolder}/OrBoard.Client/OrBoard.Client.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/County-OR-Board.Client/County-OR-Board.Client.csproj",
+                "${workspaceFolder}/OrBoard.Client/OrBoard.Client.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
