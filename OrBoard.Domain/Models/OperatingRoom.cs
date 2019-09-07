@@ -8,8 +8,13 @@ namespace County_OR_Board.Domain.Models
     {
         [Key]
         public int OperatingRoomId { get; set; }
+
         [ForeignKey("HospitalId")]
+        [Required]
         public int HospitalId { get; set; }
-        public bool OperatingnRoomStatus { get; set; }
+
+        [MaxLength(50)]
+        [Required]
+        public string OperatingnRoomStatus { get; set; }
     }
 }

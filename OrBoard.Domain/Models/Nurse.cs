@@ -7,5 +7,15 @@ namespace OrBoard.Domain.Models
     {
         [Key]
         public int NurseId { get; set; }
+
+        [Required]
+        [Range(0, int.MaxValue)]
+        [MinLength(8)]
+        [MaxLength(8)]
+        public int LicenseNumber { get; set; }
+
+        [Required]
+        [Range(0, int.MaxValue)]
+        public bool LicenseStatus { get; set; }
     }
 }
