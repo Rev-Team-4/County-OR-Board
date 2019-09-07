@@ -29,19 +29,19 @@ namespace OrBoard.Domain.Models
 
         [Required]
         public DateTime ScheduledDateTime { get; set; }
-        
+
         [Required]
         public string ProcedureName { get; set; }
-       
+
         [Required]
         public string Status { get; set; }
-       
+
         [Required]
         public DateTime EstimatedProcedureLength { get; set; }
-      
+
         [Required]
         public DateTime ActualStart { get; set; }
-       
+
         [Required]
         public DateTime ActualFinish { get; set; }
 
