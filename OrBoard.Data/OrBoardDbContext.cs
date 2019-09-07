@@ -1,3 +1,4 @@
+using OrBoard.Domain;
 using Microsoft.EntityFrameworkCore;
 using OrBoard.Domain.Models;
 
@@ -14,7 +15,7 @@ namespace OrBoard.Data
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Procedure> Procedures { get; set; }
         public DbSet<Surgeon> Surgeons { get; set; }
-        
+
 
         public OrBoardDbContext()
         {
