@@ -2,7 +2,6 @@ using OrBoard.Domain;
 using Microsoft.EntityFrameworkCore;
 using OrBoard.Domain.Models;
 
-
 namespace OrBoard.Data
 {
     public class OrBoardDbContext : DbContext
