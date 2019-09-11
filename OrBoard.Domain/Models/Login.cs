@@ -16,5 +16,13 @@ namespace OrBoard.Domain.Models
 
         [Required]
         public DateTime CreationDateTime { get; set; }
+
+        
+
+        public bool CheckLogin()
+        {
+
+            return false;
+        }
     }
 }
