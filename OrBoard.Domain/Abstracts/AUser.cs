@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using OrBoard.Domain.Models;
 
 namespace OrBoard.Domain.Abstracts
 {
@@ -7,6 +8,7 @@ namespace OrBoard.Domain.Abstracts
     {
         [ForeignKey("LoginId")]
         public int LoginId { get; set; }
+        public Login Login { get; set; }
 
         [Required]
         [MaxLength(50)]

@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrBoard.Domain.Models
 {
@@ -16,5 +18,25 @@ namespace OrBoard.Domain.Models
 
         [Required]
         public DateTime CreationDateTime { get; set; }
+
+        [NotMapped]
+        public List<Login> LoginList { get; set; }
+
+        public Login()
+        {
+            LoginList = new List<Login>();
+        }
+
+        public bool CheckLogin(string user, string pass)
+        {
+            foreach (var item in LoginList)
+            {
+                if(user == item.UserName && pass == item.Password)
+                {
+                    return true;
+                }
+            }            
+            return false;
+        }
     }
 }
