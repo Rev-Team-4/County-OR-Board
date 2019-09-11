@@ -1,20 +1,21 @@
-@model OrBoard.Domain.Models.Procedure
+@model OrBoard.Client.Models.NewCaseViewModel
 
 
-<div>
+<div style="position: relative; left: 5 0px;">
     <form asp-controller="Cases" asp-action="NewCase" method="post" id="add">
         <p>
-            <label for="schedule">Date and Time of Procedure</label>
+            <label>Date and Time of Procedure</label>
             <input type="date" id="date" name="date">
             <input type="time" id="time" name="time">
         </p>
         <p>
             <label for="anesthetist">Anesthetist</label>
-            <select></select>
-        </p>
-        <p>
-            <label for="hospital">Hospital</label>
-            <select></select>
+            <select>
+                @foreach (var item in Model.Anesthetist)
+                {
+                    <option>@item.FirstName @item.LastName</option>
+                }
+            </select>
         </p>
         <p>
             <label for="hospital">Hospital</label>
@@ -26,14 +27,14 @@
         </p>
         <p>
             <label for="pname">Procedure Name</label>
-            <input type="text" id="pname" asp-for="@Model.ProcedureName">
-            @Html.ValidationMessageFor(p => p.ProcedureName, "", new{ @class = "text-danger" })
+            <input type="text" id="pname" asp-for="@Model.Procedure.ProcedureName">
+            @Html.ValidationMessageFor(p => p.Procedure.ProcedureName, "", new{ @class = "text-danger" })
         </p>
         <p>
             <label for="duration">Estimated Time of Procedure(hours:minutes)</label>
-            <input type="text" pattern="([0-9]{1}[0-9]{1}:){0,2}[0-5]{0,1}[0-9]{1}(\.\d+)?" asp-for="@Model.EstimatedProcedureLength">
+            <input type="text" pattern="([0-9]{1}[0-9]{1}:){0,2}[0-5]{0,1}[0-9]{1}(\.\d+)?" asp-for="@Model.Procedure.EstimatedProcedureLength">
         </p>
-        <input type="hidden" value="Pending" asp-for="@Model.Status">
+        <input type="hidden" value="Pending" asp-for="@Model.Procedure.Status">
     </form>
     <button type="submit" form="add">Submit</button>
 </div>

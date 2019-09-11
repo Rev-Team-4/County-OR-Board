@@ -47,5 +47,10 @@ namespace OrBoard.Domain.Models
        
         [DataType(DataType.DateTime)]
         public DateTime ActualFinish { get; set; }
+
+        public void AddProcedure()
+        {
+
+        }
     }
 }
