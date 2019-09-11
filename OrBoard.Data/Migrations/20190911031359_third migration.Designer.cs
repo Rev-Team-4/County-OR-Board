@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OrBoard.Data;
 
 namespace OrBoard.Data.Migrations
 {
     [DbContext(typeof(OrBoardDbContext))]
-    partial class OrBoardDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190911031359_third migration")]
+    partial class thirdmigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -283,8 +285,6 @@ namespace OrBoard.Data.Migrations
 
                     b.HasKey("ProcedureId");
 
-                    b.HasIndex("SurgeonId");
-
                     b.ToTable("Procedures");
                 });
 
@@ -337,14 +337,6 @@ namespace OrBoard.Data.Migrations
                     b.HasKey("SurgeonId");
 
                     b.ToTable("Surgeons");
-                });
-
-            modelBuilder.Entity("OrBoard.Domain.Models.Procedure", b =>
-                {
-                    b.HasOne("OrBoard.Domain.Models.Surgeon", "Surgeon")
-                        .WithMany()
-                        .HasForeignKey("SurgeonId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

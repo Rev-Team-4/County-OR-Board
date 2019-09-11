@@ -9,20 +9,25 @@ namespace OrBoard.Domain.Models
         [Key]
         public int ProcedureId { get; set; }
 
-        [ForeignKey("SurgeonId")]
+        [ForeignKey("Surgeon")]
         public int SurgeonId { get; set; }
+        public Surgeon Surgeon { get; set; }
 
-        [ForeignKey("AnesthetistId")]
+        [ForeignKey("Anesthetist")]
         public int AnesthetistId { get; set; }
+        public Anesthetist Anesthetist { get; set; }
 
-        [ForeignKey("OperatingRoomId")]
+        [ForeignKey("OperatingRoom")]
         public int OperatingRoomId { get; set; }
+        public OperatingRoom OperatingRoom { get; set; }
 
-        [ForeignKey("HospitalId")]
+        [ForeignKey("Hospital")]
         public int HospitalId { get; set; }
+        public Hospital Hospital { get; set; }
 
-        [ForeignKey("NurseId")]
+        [ForeignKey("Nurse")]
         public int NurseId { get; set; }
+        public Nurse Nurse { get; set; }
 
         [Required]
         public DateTime ScheduledDateTime { get; set; }
