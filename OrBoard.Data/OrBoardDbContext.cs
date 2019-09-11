@@ -1,3 +1,4 @@
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using OrBoard.Domain.Models;
 
@@ -29,6 +30,16 @@ namespace OrBoard.Data
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             builder.UseSqlServer("server=localhost; initial catalog=OrBoardDb; user id=sa; password=Password12345");
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            foreach (var relationship in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+
+            base.OnModelCreating(builder);
         }
     }
 }
