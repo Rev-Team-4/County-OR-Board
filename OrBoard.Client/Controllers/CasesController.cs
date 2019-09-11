@@ -11,14 +11,13 @@ namespace OrBoard.Client.Controllers
 {
     public class CasesController : Controller
     {
-
-
+        public static string User;
+        
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpGet]
         public IActionResult NewCase()
         {
             return View();

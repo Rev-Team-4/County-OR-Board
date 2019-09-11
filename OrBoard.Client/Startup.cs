@@ -57,7 +57,7 @@ namespace OrBoard.Client
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Cases}/{action=Index}/{id?}");
+                    template: "{controller=Login}/{action=Index}/{id?}");
             });
         }
     }
