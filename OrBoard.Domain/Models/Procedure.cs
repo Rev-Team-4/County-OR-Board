@@ -21,29 +21,26 @@ namespace OrBoard.Domain.Models
         [ForeignKey("HospitalId")]
         public int HospitalId { get; set; }
 
-        [ForeignKey("Patient")]
-        public int PatientId { get; set; }
-
         [ForeignKey("NurseId")]
         public int NurseId { get; set; }
 
         [Required]
         public DateTime ScheduledDateTime { get; set; }
         
-        [Required]
+        [Required(ErrorMessage = "Please Enter a Name")]
         public string ProcedureName { get; set; }
        
         [Required]
         public string Status { get; set; }
        
         [Required]
-        public DateTime EstimatedProcedureLength { get; set; }
+        [DataType(DataType.Time)]
+        public string EstimatedProcedureLength { get; set; }
       
-        [Required]
+        [DataType(DataType.DateTime)]
         public DateTime ActualStart { get; set; }
        
-        [Required]
+        [DataType(DataType.DateTime)]
         public DateTime ActualFinish { get; set; }
-
     }
 }

@@ -9,7 +9,7 @@
     <style>
         .sidenav {
             height: 100%; /* 100% Full-height */
-            width: 100px; /* 0 width - change this with JavaScript */
+            width: 150px; /* 0 width - change this with JavaScript */
             position: absolute; /* Stay in place */
             z-index: 1; /* Stay on top */
             top: 60; /* Stay at the top */
@@ -23,7 +23,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">OrBoard</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
@@ -40,8 +40,7 @@
     </header>
 
     <nav class="sidenav flex-column bg-dark">
-        <a class="nav-link active" href="#">Active</a>
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link active" asp-controller="Cases" asp-action="NewCase">Add New Case</a>
     </nav>
 
     <div class="container">
