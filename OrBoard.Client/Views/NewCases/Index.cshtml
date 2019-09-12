@@ -13,7 +13,7 @@
             <select asp-for="@Model.Procedure.AnesthetistId">
                 @foreach (var item in Model.Anesthetist)
                 {
-                    <option value="@item.AnesthetistId">@item.FirstName @item.LastName</option>
+                    <option value="@item.AnesthetistId">@Html.Partial("_AnesthPartial", item)</option>
                 }
             </select>
         </p>
