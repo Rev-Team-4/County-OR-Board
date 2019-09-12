@@ -26,6 +26,16 @@ namespace OrBoard.Client.Controllers
             {
                 ncm.Anesthetist.Add(new Anesthetist(){FirstName = item.FirstName, LastName = item.LastName});
             }
+
+            foreach (var item in _db.Hospitals.ToList())
+            {
+                ncm.Hospital.Add(new Hospital(){Name = item.Name});
+            }
+
+            foreach (var item in _db.OperatingRooms.ToList())
+            {
+                ncm.OperatingRoom.Add(new OperatingRoom(){});
+            }
             return View(ncm);
         }
 
