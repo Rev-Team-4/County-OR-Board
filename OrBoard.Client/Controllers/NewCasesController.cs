@@ -25,40 +25,39 @@ namespace OrBoard.Client.Controllers
 
             foreach (var item in _db.Hospitals.ToList())
             {
-                ncm.Hospital.Add(new Hospital(){Name = item.Name});
+                ncm.Hospital.Add(new Hospital(){Name = item.Name, HospitalId = item.HospitalId});
             }
 
             foreach (var item in _db.OperatingRooms.ToList())
             {
-                ncm.OperatingRoom.Add(new OperatingRoom(){});
+                ncm.OperatingRoom.Add(new OperatingRoom(){OperatingRoomId = item.OperatingRoomId, OperatingnRoomStatus = item.OperatingnRoomStatus});
             }
             return View(ncm);
         }
 
         [HttpPost]
-        public IActionResult Index(Procedure p, string date, string time)
+        public IActionResult Index(NewCaseViewModel ncm2, string date, string time)
         {
-            if(ModelState.IsValid)
-            {
+
                 date = Convert.ToDateTime(date).ToString("yyyy-MM-dd");
-                TimeSpan ts = TimeSpan.Parse(p.EstimatedProcedureLength);
+                TimeSpan ts = TimeSpan.Parse(ncm2.Procedure.EstimatedProcedureLength);
                 _db.Procedures.Add(new Procedure()
                 {
                     ScheduledDateTime = DateTime.Parse(date + " " + time),
                     SurgeonId = LoginController.LoggedInUser,
-                    AnesthetistId = p.AnesthetistId,
-                    OperatingRoomId = p.OperatingRoomId,
-                    HospitalId = p.HospitalId,
-                    ProcedureName = p.ProcedureName,
-                    EstimatedProcedureLength = p.EstimatedProcedureLength
+                    AnesthetistId = ncm2.Procedure.AnesthetistId,
+                    OperatingRoomId = ncm2.Procedure.OperatingRoomId,
+                    HospitalId = ncm2.Procedure.HospitalId,
+                    ProcedureName = ncm2.Procedure.ProcedureName,
+                    EstimatedProcedureLength = ncm2.Procedure.EstimatedProcedureLength,
+                    Status = ncm2.Procedure.Status,
+                    NurseId = null
                 });
 
                 _db.SaveChanges();
 
-                return RedirectToAction("Index", "Cases");
-            }
-            
-            return View();
+                return RedirectToAction("Index", "NewCases");
+
         }
     }
 }

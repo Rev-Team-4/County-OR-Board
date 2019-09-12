@@ -7,6 +7,6 @@ namespace OrBoard.Domain.Models
     public class Nurse : ADoctor
     {
         [Key]
-        public int NurseId { get; set; }
+        public int? NurseId { get; set; }
     }
 }

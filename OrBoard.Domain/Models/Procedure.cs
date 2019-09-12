@@ -26,7 +26,7 @@ namespace OrBoard.Domain.Models
         public Hospital Hospital { get; set; }
 
         [ForeignKey("Nurse")]
-        public int NurseId { get; set; }
+        public int? NurseId { get; set; }
         public Nurse Nurse { get; set; }
 
         [Required]
@@ -54,6 +54,7 @@ namespace OrBoard.Domain.Models
             AnesthetistId = 0;
             HospitalId = 0;
             OperatingRoomId = 0;
+            NurseId = 0;
         }
     }
 }
