@@ -13,9 +13,9 @@ namespace OrBoard.Client.Models
         public NewCaseViewModel()
         {
             Procedure = new Procedure();
-            Anesthetist = new List<Anesthetist>();
-            Hospital = new List<Hospital>();
-            OperatingRoom = new List<OperatingRoom>();
+            Anesthetist = new List<Anesthetist>(){};
+            Hospital = new List<Hospital>(){};
+            OperatingRoom = new List<OperatingRoom>(){};
         }
     }
 }

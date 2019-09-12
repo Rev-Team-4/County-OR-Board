@@ -2,7 +2,7 @@
 
 
 <div style="position: relative; left: 50px;">
-    <form asp-controller="Cases" asp-action="NewCase" method="post" id="add">
+    <form action="/newcases/index" method="post" id="add">
         <p>
             <label>Date and Time of Procedure</label>
             <input type="date" id="date" name="date">
@@ -10,20 +10,30 @@
         </p>
         <p>
             <label for="anesthetist">Anesthetist</label>
-            <select>
+            <select asp-for="@Model.Procedure.AnesthetistId">
                 @foreach (var item in Model.Anesthetist)
                 {
-                    <option>@item.FirstName @item.LastName</option>
+                    <option value="@item.AnesthetistId">@item.FirstName @item.LastName</option>
                 }
             </select>
         </p>
         <p>
             <label for="hospital">Hospital</label>
-            <select></select>
+            <select asp-for="@Model.Procedure.HospitalId">
+                @foreach (var item in Model.Hospital)
+                {
+                    <option value="@item.HospitalId">@item.Name</option>
+                }
+            </select>
         </p>
         <p>
             <label for="or">Operating Room</label>
-            <select></select>
+            <select asp-for="@Model.Procedure.OperatingRoomId">
+                @foreach (var item in Model.OperatingRoom)
+                {
+                    <option value="@item.OperatingRoomId">@item.OperatingRoomId @item.OperatingnRoomStatus</option>
+                }
+            </select>
         </p>
         <p>
             <label for="pname">Procedure Name</label>

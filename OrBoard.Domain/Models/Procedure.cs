@@ -50,7 +50,10 @@ namespace OrBoard.Domain.Models
 
         public void AddProcedure()
         {
-
+            SurgeonId = 0;
+            AnesthetistId = 0;
+            HospitalId = 0;
+            OperatingRoomId = 0;
         }
     }
 }
