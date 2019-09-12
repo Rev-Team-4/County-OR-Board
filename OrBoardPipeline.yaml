@@ -13,8 +13,8 @@ stages:
         steps: 
           - task: UseDotNet@2
             displayName: 'dotnet installer'
-            input: 
-              version: '2.2.200'
+            inputs: 
+              version: '2.2.104'
           - script: | 
               dotnet build
 
@@ -30,14 +30,14 @@ stages:
         steps: 
           - task: UseDotNet@2
             displayName: 'dotnet installer'
-            input: 
-              version: '2.2.200'
+            inputs: 
+              version: '2.2.104'
           - script: | 
-              dotnet tool install --global sonarscanner
-              dotnet sonarscanner begin /k:"project-key" /o:"uchan3" /d:sonar.login="<token>" 
+              dotnet tool install --global dotnet-sonarscanner
+              dotnet sonarscanner begin /k:"Rev-Team-4_County-OR-Board" /o:"Rev-Team-4" /d:sonar.login="9493587ec046e5d91f8e6feb78f7419dde70ce99" /d:sonar.host.url="https://sonarcloud.io"
               dotnet build
               dotnet test -p:CollectCoverage=true
-              dotnet sonarscanner end /d:sonar.login="<token>" 
+              dotnet sonarscanner end /d:sonar.login="9493587ec046e5d91f8e6feb78f7419dde70ce99" 
           - task: PublishTestResults@2
             displayName: 'publish result::unit-test'
             inputs:
