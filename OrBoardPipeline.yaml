@@ -14,7 +14,7 @@ stages:
           - task: UseDotNet@2
             displayName: 'dotnet installer'
             inputs: 
-              version: '2.2.200'
+              version: '2.2'
           - script: | 
               dotnet build
 
@@ -31,7 +31,7 @@ stages:
           - task: UseDotNet@2
             displayName: 'dotnet installer'
             inputs: 
-              version: '2.2.200'
+              version: '2.2'
           - script: | 
               dotnet tool install --global sonarscanner
               dotnet sonarscanner begin /k:"project-key" /o:"uchan3" /d:sonar.login="<token>" 
