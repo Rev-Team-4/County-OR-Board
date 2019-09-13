@@ -15,7 +15,7 @@ namespace OrBoard.Client.Controllers
     {
         public OrBoardDbContext _db = new OrBoardDbContext();
         public NewCaseViewModel ncm = new NewCaseViewModel();
-        
+
         public int SiD { get; set; }
 
         [HttpGet]
@@ -23,7 +23,7 @@ namespace OrBoard.Client.Controllers
         {
             foreach (var item in _db.Surgeons.ToList())
             {
-                if(item.LoginId == LoginController.LoggedInUser)
+                if (item.LoginId == LoginController.LoggedInUser)
                 {
                     SiD = item.SurgeonId;
                 }
@@ -31,21 +31,21 @@ namespace OrBoard.Client.Controllers
 
             foreach (var item in _db.Anesthetists.ToList())
             {
-                ncm.Anesthetist.Add(new Anesthetist(){FirstName = item.FirstName, LastName = item.LastName, AnesthetistId = item.AnesthetistId});
+                ncm.Anesthetist.Add(new Anesthetist() { FirstName = item.FirstName, LastName = item.LastName, AnesthetistId = item.AnesthetistId });
             }
 
             foreach (var item in _db.Hospitals.ToList())
             {
-                ncm.Hospital.Add(new Hospital(){Name = item.Name, HospitalId = item.HospitalId});
+                ncm.Hospital.Add(new Hospital() { Name = item.Name, HospitalId = item.HospitalId });
             }
 
             foreach (var item in _db.OperatingRooms.ToList())
             {
                 ncm.OperatingRoom.Add(new OperatingRoom()
                 {
-                    OperatingRoomId = item.OperatingRoomId, 
-                    OperatingRoomStatus = item.OperatingRoomStatus, 
-                    HospitalId = item.HospitalId, 
+                    OperatingRoomId = item.OperatingRoomId,
+                    OpRoomStatus = item.OpRoomStatus,
+                    HospitalId = item.HospitalId,
                     DateTimeAvailable = item.DateTimeAvailable
                 });
             }
@@ -54,7 +54,7 @@ namespace OrBoard.Client.Controllers
             {
                 foreach (var x in ncm.Hospital)
                 {
-                    if(item.HospitalId == x.HospitalId)
+                    if (item.HospitalId == x.HospitalId)
                     {
                         item.HospitalName = x.Name;
                     }
@@ -71,7 +71,7 @@ namespace OrBoard.Client.Controllers
 
             foreach (var item in _db.Surgeons.ToList())
             {
-                if(item.LoginId == LoginController.LoggedInUser)
+                if (item.LoginId == LoginController.LoggedInUser)
                 {
                     SiD = item.SurgeonId;
                 }
@@ -79,7 +79,7 @@ namespace OrBoard.Client.Controllers
 
             foreach (var item in _db.OperatingRooms.ToList())
             {
-                if(ncm2.Procedure.OperatingRoomId == item.OperatingRoomId)
+                if (ncm2.Procedure.OperatingRoomId == item.OperatingRoomId)
                 {
                     ncm2.Procedure.HospitalId = item.HospitalId;
                     date = item.DateTimeAvailable;
