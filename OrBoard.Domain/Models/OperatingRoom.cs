@@ -12,9 +12,17 @@ namespace OrBoard.Domain.Models
         [ForeignKey("HospitalId")]
         [Required]
         public int HospitalId { get; set; }
-
-        [MaxLength(50)]
         [Required]
-        public string OperatingnRoomStatus { get; set; }
+        public Hospital Hospital { get; set; }
+
+        [DataType(DataType.DateTime)]        
+        [Display(Name = "Date and Time")]
+        public DateTime DateTimeAvailable { get; set; }
+
+        [Required]
+        public string OpRoomStatus { get; set; }
+
+              
+
     }
 }
