@@ -12,9 +12,16 @@ namespace OrBoard.Client.Controllers
 {
     public class CasesController : Controller
     {   
+        Procedure p = new Procedure();
+        OrBoardDbContext _db = new OrBoardDbContext();
         public IActionResult Index()
         {
-            return View();
+            p.ProcedureList = new List<Procedure>();
+            foreach (var item in _db.Procedures.ToList())
+            {
+                p.ProcedureList.Add(item);
+            }
+            return View(p);
         }
     }
 }

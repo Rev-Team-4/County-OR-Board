@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -48,6 +49,9 @@ namespace OrBoard.Domain.Models
         [DataType(DataType.DateTime)]
         public DateTime ActualFinish { get; set; }
 
+        [NotMapped]
+        public List<Procedure> ProcedureList { get; set; }
+
         public void AddProcedure()
         {
             SurgeonId = 0;
@@ -55,6 +59,7 @@ namespace OrBoard.Domain.Models
             HospitalId = 0;
             OperatingRoomId = 0;
             NurseId = 0;
+            ProcedureList = new List<Procedure>(){};
         }
     }
 }
