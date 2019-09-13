@@ -13,16 +13,16 @@ namespace OrBoard.Domain.Models
         [Required]
         public int HospitalId { get; set; }
         [Required]
-        public Hospital Hospital { get; set; }
+        public string HospitalName { get; set; }
 
-        [DataType(DataType.DateTime)]        
+        [DataType(DataType.DateTime)]
         [Display(Name = "Date and Time")]
         public DateTime DateTimeAvailable { get; set; }
 
         [Required]
         public string OpRoomStatus { get; set; }
 
-              
+
 
     }
 }
