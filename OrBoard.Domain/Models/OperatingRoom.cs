@@ -15,7 +15,7 @@ namespace OrBoard.Domain.Models
 
         [MaxLength(50)]
         [Required]
-        public string OperatingRoomStatus { get; set; }
+        public string OpRoomStatus { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime DateTimeAvailable { get; set; }
