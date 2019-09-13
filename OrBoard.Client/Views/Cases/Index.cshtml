@@ -1,6 +1,6 @@
 @model OrBoard.Domain.Models.Procedure
 
-<div class="table-responsive" style="position: relative; left: 30px;">
+<div class="table-responsive" style="position: relative; left: 40px;">
     <table class="table table-bordered table-sm" style="font-size: 12px;">
         <thead>
             <tr>
@@ -46,7 +46,9 @@
                         @item.EstimatedProcedureLength
                     </td>
                     <td>
-                        <a href="/newcases/index">Edit</a>
+                        <form asp-controller="EditCases" asp-action="Index" asp-for="@Model.ProcedureId"> 
+                            <button type="submit" value="@item.ProcedureId">Edit</button>
+                        </form>
                     </td>
                 </tr>
             }
