@@ -1,12 +1,10 @@
-<div class="table-responsive" style="position: relative; left: 30px;">
+@model OrBoard.Domain.Models.Procedure
+
+<div class="table-responsive" style="position: relative; left: 40px;">
     <table class="table table-bordered table-sm" style="font-size: 12px;">
         <thead>
             <tr>
                 <th>Case #</th>
-                <th>Patient Name</th>
-                <th>Age</th>
-                <th>Patient Id</th>
-                <th>Gender</th>
                 <th>Procedure</th>
                 <th>Scheduled Date</th>
                 <th>Anesthetist</th>
@@ -15,7 +13,45 @@
                 <th>Actual Start</th>
                 <th>Actual Finish</th>
                 <th>Estimated Duration</th>
+                <th>Edit</th>
             </tr>
+            @foreach (var item in Model.ProcedureList)
+            {
+                <tr>
+                    <td>
+                        @item.ProcedureId
+                    </td>
+                    <td>
+                        @item.ProcedureName
+                    </td>
+                    <td>
+                        @item.ScheduledDateTime
+                    </td>
+                    <td>
+                        @item.AnesthetistId
+                    </td>
+                    <td>
+                        @item.NurseId
+                    </td>
+                    <td>
+                        @item.Status
+                    </td>
+                    <td>
+                        @item.ActualStart
+                    </td>
+                    <td>
+                        @item.ActualFinish
+                    </td>
+                    <td>
+                        @item.EstimatedProcedureLength
+                    </td>
+                    <td>
+                        <form asp-controller="EditCases" asp-action="Index" asp-for="@Model.ProcedureId"> 
+                            <button type="submit" value="@item.ProcedureId">Edit</button>
+                        </form>
+                    </td>
+                </tr>
+            }
         </thead>
     </table>
 </div>

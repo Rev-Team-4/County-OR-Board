@@ -33,6 +33,7 @@ namespace OrBoard.Domain.Models
             {
                 if(user == item.UserName && pass == item.Password)
                 {
+                    LoginId = item.LoginId;
                     return true;
                 }
             }            

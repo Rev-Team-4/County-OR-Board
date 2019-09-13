@@ -15,6 +15,12 @@ namespace OrBoard.Domain.Models
 
         [MaxLength(50)]
         [Required]
-        public string OperatingnRoomStatus { get; set; }
+        public string OperatingRoomStatus { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime DateTimeAvailable { get; set; }
+
+        [NotMapped]
+        public string HospitalName { get; set; }
     }
 }

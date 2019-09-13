@@ -11,7 +11,6 @@ namespace OrBoard.Domain.Abstracts
         public int LicenseNumber { get; set; }
 
         [Required]
-        [Range(0, int.MaxValue)]
         public bool LicenseStatus { get; set; }
 
         [Required]
@@ -21,7 +20,6 @@ namespace OrBoard.Domain.Abstracts
         public int NPINumber { get; set; }
 
         [Required]
-        [Range(0, int.MaxValue)]
-        public int NPIStatus { get; set; }
+        public bool NPIStatus { get; set; }
     }
 }
