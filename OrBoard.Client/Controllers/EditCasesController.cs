@@ -19,7 +19,7 @@ namespace OrBoard.Client.Controllers
             pId = id;
             foreach (var item in _db.Surgeons.ToList())
             {
-                if(item.LoginId == LoginController.LoggedInUser)
+                if (item.LoginId == LoginController.LoggedInUser)
                 {
                     SiD = item.SurgeonId;
                 }
@@ -43,8 +43,9 @@ namespace OrBoard.Client.Controllers
             foreach (var item in ncm.OperatingRoom)
             {
                 foreach (var x in ncm.Hospital)
+
                 {
-                    if(item.HospitalId == x.HospitalId)
+                    if (item.HospitalId == x.HospitalId)
                     {
                         item.HospitalName = x.Name;
                     }

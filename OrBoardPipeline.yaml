@@ -1,0 +1,87 @@
+name: ($date:yyyyMMdd)$(rev:.rr) 
+
+stages: 
+  - stage: 'build' 
+    condition: succeeded() 
+    displayName: 'build-mvc'
+    jobs:
+      - job: 
+        condition: succeeded()
+        displayName: 'build-process'
+        pool: 
+          vmImage: 'ubuntu-16.04'
+        steps: 
+          - task: UseDotNet@2
+            displayName: 'dotnet installer'
+            inputs: 
+              version: '2.2.104'
+          - script: | 
+              dotnet build
+
+  - stage: 'test' 
+    condition: succeeded() 
+    displayName: 'test-mvc'
+    jobs:
+      - job: 
+        condition: succeeded()
+        displayName: 'test-process'
+        pool: 
+          vmImage: 'ubuntu-16.04'
+        steps: 
+          - task: UseDotNet@2
+            displayName: 'dotnet installer'
+            inputs: 
+              version: '2.2.104'
+          - script: | 
+              dotnet tool install --global dotnet-sonarscanner
+              dotnet sonarscanner begin /k:"Rev-Team-4_County-OR-Board" /o:"Rev-Team-4" /d:sonar.login="9493587ec046e5d91f8e6feb78f7419dde70ce99" /d:sonar.host.url="https://sonarcloud.io"
+              dotnet build
+              dotnet test -p:CollectCoverage=true
+              dotnet sonarscanner end /d:sonar.login="9493587ec046e5d91f8e6feb78f7419dde70ce99" 
+          - task: PublishTestResults@2
+            displayName: 'publish result::unit-test'
+            inputs:
+              testRunner: VSTest
+              testResultsFiles: '**/*.trx'
+          - task: PublishCodeCoverageResults@1
+            displayName: 'publish result::code-coverage'
+            inputs:
+              codeCoverageTool: cobertura
+              summaryFileLocation: '**/coverage.cobertura.xml'
+
+  - stage: 'pack' 
+    condition: succeeded() 
+    dependsOn: 
+      - test
+    displayName: 'pack-mvc'
+    jobs:
+      - job: 
+        condition: succeeded()
+        displayName: 'pack-process'
+        pool: 
+          vmImage: 'ubuntu-16.04'
+        steps: 
+          - script: | 
+              dotnet publish
+  
+  - stage: 'deploy' 
+    condition: succeeded() 
+    dependsOn: 
+      - test
+    displayName: 'deploy-mvc'
+    jobs:
+      - job: 
+        condition: succeeded()
+        displayName: 'deploy-process'
+        pool: 
+          vmImage: 'ubuntu-16.04'
+        steps: 
+          - script: | 
+              echo 'deploy successful'
+
+trigger: 
+  branches:
+    include:
+      - master
+
+              

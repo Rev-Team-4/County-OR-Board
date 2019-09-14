@@ -15,7 +15,7 @@ namespace OrBoard.Data
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Procedure> Procedures { get; set; }
         public DbSet<Surgeon> Surgeons { get; set; }
-        
+
 
         public OrBoardDbContext()
         {
@@ -29,7 +29,7 @@ namespace OrBoard.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            builder.UseSqlServer("server=localhost; initial catalog=OrBoardDb; user id=sa; password=Password12345");
+            builder.UseSqlServer("server=localhost;initial catalog=OrBoardDB;user id=sa;password=Password12345;");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

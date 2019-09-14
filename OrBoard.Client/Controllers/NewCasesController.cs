@@ -15,7 +15,7 @@ namespace OrBoard.Client.Controllers
     {
         public OrBoardDbContext _db = new OrBoardDbContext();
         public NewCaseViewModel ncm = new NewCaseViewModel();
-        
+
         public int SiD { get; set; }
 
         [HttpGet]
@@ -48,7 +48,7 @@ namespace OrBoard.Client.Controllers
             {
                 foreach (var x in ncm.Hospital)
                 {
-                    if(item.HospitalId == x.HospitalId)
+                    if (item.HospitalId == x.HospitalId)
                     {
                         item.HospitalName = x.Name;
                     }

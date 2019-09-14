@@ -4,9 +4,10 @@ using OrBoard.Domain.Abstracts;
 
 namespace OrBoard.Domain.Models
 {
-  public class Anesthetist : ADoctor
-  {
+    public class Anesthetist : ADoctor
+
+    {
         [Key]
         public int AnesthetistId { get; set; }
-  }
+    }
 }
