@@ -12,8 +12,9 @@ namespace OrBoard.Client.Controllers
 {
     public class CasesController : Controller
     {   
-        Procedure p = new Procedure();
-        OrBoardDbContext _db = new OrBoardDbContext();
+        public Procedure p = new Procedure();
+        public OrBoardDbContext _db = new OrBoardDbContext();
+        
         public IActionResult Index()
         {
             p.ProcedureList = new List<Procedure>();
@@ -22,6 +23,11 @@ namespace OrBoard.Client.Controllers
                 p.ProcedureList.Add(item);
             }
             return View(p);
+        }
+
+        public IActionResult EditCases(int editid)
+        {
+            return RedirectToAction("Index", "EditCases", new {id = editid});
         }
     }
 }

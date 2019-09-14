@@ -46,8 +46,8 @@
                         @item.EstimatedProcedureLength
                     </td>
                     <td>
-                        <form asp-controller="EditCases" asp-action="Index" asp-for="@Model.ProcedureId"> 
-                            <button type="submit" value="@item.ProcedureId">Edit</button>
+                        <form asp-controller="Cases" asp-action="EditCases"> 
+                            <button type="submit" value="@item.ProcedureId" name="editid">Edit</button>
                         </form>
                     </td>
                 </tr>

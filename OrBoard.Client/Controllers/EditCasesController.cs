@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using OrBoard.Client.Models;
@@ -10,12 +11,12 @@ namespace OrBoard.Client.Controllers
     {
         public OrBoardDbContext _db = new OrBoardDbContext();
         public NewCaseViewModel ncm = new NewCaseViewModel();
-        public Procedure p = new Procedure();
         public int SiD { get; set; }
+        public static int pId { get; set; }
 
-        public IActionResult Index()
+        public IActionResult Index(int id)
         {
-            int test = p.ProcedureId;
+            pId = id;
             foreach (var item in _db.Surgeons.ToList())
             {
                 if(item.LoginId == LoginController.LoggedInUser)
@@ -26,23 +27,17 @@ namespace OrBoard.Client.Controllers
 
             foreach (var item in _db.Anesthetists.ToList())
             {
-                ncm.Anesthetist.Add(new Anesthetist(){FirstName = item.FirstName, LastName = item.LastName, AnesthetistId = item.AnesthetistId});
+                ncm.Anesthetist.Add(item);
             }
 
             foreach (var item in _db.Hospitals.ToList())
             {
-                ncm.Hospital.Add(new Hospital(){Name = item.Name, HospitalId = item.HospitalId});
+                ncm.Hospital.Add(item);
             }
 
             foreach (var item in _db.OperatingRooms.ToList())
             {
-                ncm.OperatingRoom.Add(new OperatingRoom()
-                {
-                    OperatingRoomId = item.OperatingRoomId, 
-                    OperatingRoomStatus = item.OperatingRoomStatus, 
-                    HospitalId = item.HospitalId, 
-                    DateTimeAvailable = item.DateTimeAvailable
-                });
+                ncm.OperatingRoom.Add(item);
             }
 
             foreach (var item in ncm.OperatingRoom)
@@ -56,7 +51,63 @@ namespace OrBoard.Client.Controllers
                 }
             }
 
+            foreach (var item in _db.Procedures.ToList())
+            {
+                if(id == item.ProcedureId)
+                {
+                    ncm.Procedure.ProcedureName = item.ProcedureName;
+                    ncm.Procedure.EstimatedProcedureLength = item.EstimatedProcedureLength;
+                    ncm.Procedure.ActualStart = item.ActualStart;
+                    ncm.Procedure.ActualFinish = item.ActualFinish;
+                    ncm.Procedure.Status = item.Status;
+                }
+            }
+
             return View(ncm);
+        }
+
+        [HttpPost]
+        public IActionResult Index(NewCaseViewModel ncvm)
+        {
+            if(ModelState.IsValid)
+            {
+                DateTime date = new DateTime();
+
+                foreach (var item in _db.Surgeons.ToList())
+                {
+                    if(item.LoginId == LoginController.LoggedInUser)
+                    {
+                        SiD = item.SurgeonId;
+                    }
+                }
+
+                foreach (var item in _db.OperatingRooms.ToList())
+                {
+                    if(ncvm.Procedure.OperatingRoomId == item.OperatingRoomId)
+                    {
+                        ncvm.Procedure.HospitalId = item.HospitalId;
+                        date = item.DateTimeAvailable;
+                    }
+                }
+                
+                var update = _db.Procedures.SingleOrDefault(p => p.ProcedureId == pId);
+                if(update != null)
+                {
+                    update.ScheduledDateTime = date;
+                    update.SurgeonId = SiD;
+                    update.AnesthetistId = ncvm.Procedure.AnesthetistId;
+                    update.OperatingRoomId = ncvm.Procedure.OperatingRoomId;
+                    update.HospitalId = ncvm.Procedure.HospitalId;
+                    update.ProcedureName = ncvm.Procedure.ProcedureName;
+                    update.EstimatedProcedureLength = ncvm.Procedure.EstimatedProcedureLength;
+                    update.Status = ncvm.Procedure.Status;
+                    update.NurseId = ncvm.Procedure.NurseId;
+                    update.ActualStart = ncvm.Procedure.ActualStart;
+                    update.ActualFinish = ncvm.Procedure.ActualFinish;
+                    _db.SaveChanges();
+                }
+            }
+            return RedirectToAction("Index", "Cases");
         }
     }
 }
