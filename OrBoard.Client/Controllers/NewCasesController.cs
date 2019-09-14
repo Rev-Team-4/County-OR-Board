@@ -18,43 +18,10 @@ namespace OrBoard.Client.Controllers
 
         public int SiD { get; set; }
 
-        [HttpGet]
+        [HttpGet]   
         public IActionResult Index()
         {
-            // foreach (var item in _db.Surgeons.ToList())
-            // {
-            //     if(item.LoginId == LoginController.LoggedInUser)
-            //     {
-            //         SiD = item.SurgeonId;
-            //     }
-            // }
-
-            foreach (var item in _db.Anesthetists.ToList())
-            {
-                ncm.Anesthetist.Add(item);
-            }
-
-            foreach (var item in _db.Hospitals.ToList())
-            {
-                ncm.Hospital.Add(item);
-            }
-
-            foreach (var item in _db.OperatingRooms.ToList())
-            {
-                ncm.OperatingRoom.Add(item);
-            }
-
-            foreach (var item in ncm.OperatingRoom)
-            {
-                foreach (var x in ncm.Hospital)
-                {
-                    if (item.HospitalId == x.HospitalId)
-                    {
-                        item.HospitalName = x.Name;
-                    }
-                }
-            }
-
+            ncm.Read();
             return View(ncm);
         }
 
@@ -63,39 +30,7 @@ namespace OrBoard.Client.Controllers
         {
             if(ModelState.IsValid)
             {
-                DateTime date = new DateTime();
-
-                foreach (var item in _db.Surgeons.ToList())
-                {
-                    if(item.LoginId == LoginController.LoggedInUser)
-                    {
-                        SiD = item.SurgeonId;
-                    }
-                }
-
-                foreach (var item in _db.OperatingRooms.ToList())
-                {
-                    if(ncm2.Procedure.OperatingRoomId == item.OperatingRoomId)
-                    {
-                        ncm2.Procedure.HospitalId = item.HospitalId;
-                        date = item.DateTimeAvailable;
-                    }
-                }
-
-                _db.Procedures.Add(new Procedure()
-                {
-                    ScheduledDateTime = date,
-                    SurgeonId = SiD,
-                    AnesthetistId = ncm2.Procedure.AnesthetistId,
-                    OperatingRoomId = ncm2.Procedure.OperatingRoomId,
-                    HospitalId = ncm2.Procedure.HospitalId,
-                    ProcedureName = ncm2.Procedure.ProcedureName,
-                    EstimatedProcedureLength = ncm2.Procedure.EstimatedProcedureLength,
-                    Status = ncm2.Procedure.Status,
-                    NurseId = null
-                });
-
-                _db.SaveChanges();
+                ncm2.Write();
             }
 
             return RedirectToAction("Index", "Cases");
