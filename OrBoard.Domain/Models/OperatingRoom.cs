@@ -14,6 +14,7 @@ namespace OrBoard.Domain.Models
         public int HospitalId { get; set; }
 
         [Required]
+        [NotMapped]
         public string HospitalName { get; set; }
 
         [DataType(DataType.DateTime)]
