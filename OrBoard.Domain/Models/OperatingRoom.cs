@@ -12,6 +12,7 @@ namespace OrBoard.Domain.Models
         [ForeignKey("HospitalId")]
         [Required]
         public int HospitalId { get; set; }
+
         [Required]
         public string HospitalName { get; set; }
 
