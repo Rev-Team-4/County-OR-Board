@@ -18,7 +18,7 @@
                 <select asp-for="@Model.Procedure.OperatingRoomId">
                     @foreach (var item in Model.OperatingRoom)
                     {
-                        <option value="@item.OperatingRoomId">@item.HospitalName | Room @item.OperatingRoomId | @item.OperatingRoomStatus | @item.DateTimeAvailable</option>
+                        <option value="@item.OperatingRoomId">@item.HospitalName | Room @item.OperatingRoomId | @item.OpRoomStatus | @item.DateTimeAvailable</option>
                     }
                 </select>
             </p>
