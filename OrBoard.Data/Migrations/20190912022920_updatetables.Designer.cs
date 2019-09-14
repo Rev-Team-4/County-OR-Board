@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OrBoard.Data;
 
 namespace OrBoard.Data.Migrations
 {
     [DbContext(typeof(OrBoardDbContext))]
-    partial class OrBoardDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190912022920_updatetables")]
+    partial class updatetables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -148,7 +150,7 @@ namespace OrBoard.Data.Migrations
 
             modelBuilder.Entity("OrBoard.Domain.Models.Nurse", b =>
                 {
-                    b.Property<int?>("NurseId")
+                    b.Property<int>("NurseId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -205,11 +207,9 @@ namespace OrBoard.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("DateTimeAvailable");
-
                     b.Property<int>("HospitalId");
 
-                    b.Property<string>("OperatingRoomStatus")
+                    b.Property<string>("OperatingnRoomStatus")
                         .IsRequired()
                         .HasMaxLength(50);
 
@@ -284,7 +284,7 @@ namespace OrBoard.Data.Migrations
 
                     b.Property<int>("HospitalId");
 
-                    b.Property<int?>("NurseId");
+                    b.Property<int>("NurseId");
 
                     b.Property<int>("OperatingRoomId");
 

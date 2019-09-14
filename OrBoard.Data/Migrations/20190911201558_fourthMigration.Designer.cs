@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OrBoard.Data;
 
 namespace OrBoard.Data.Migrations
 {
     [DbContext(typeof(OrBoardDbContext))]
-    partial class OrBoardDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190911201558_fourthMigration")]
+    partial class fourthMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,7 +52,7 @@ namespace OrBoard.Data.Migrations
                     b.Property<int>("NPINumber")
                         .HasMaxLength(10);
 
-                    b.Property<bool>("NPIStatus");
+                    b.Property<int>("NPIStatus");
 
                     b.Property<string>("Phone")
                         .IsRequired();
@@ -102,8 +104,6 @@ namespace OrBoard.Data.Migrations
 
                     b.Property<bool>("LicenseStatus");
 
-                    b.Property<int>("LoginId");
-
                     b.Property<string>("ManagerEmail")
                         .IsRequired()
                         .HasMaxLength(50);
@@ -121,8 +121,6 @@ namespace OrBoard.Data.Migrations
                         .HasMaxLength(50);
 
                     b.HasKey("HospitalId");
-
-                    b.HasIndex("LoginId");
 
                     b.ToTable("Hospitals");
                 });
@@ -148,7 +146,7 @@ namespace OrBoard.Data.Migrations
 
             modelBuilder.Entity("OrBoard.Domain.Models.Nurse", b =>
                 {
-                    b.Property<int?>("NurseId")
+                    b.Property<int>("NurseId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -177,7 +175,7 @@ namespace OrBoard.Data.Migrations
                     b.Property<int>("NPINumber")
                         .HasMaxLength(10);
 
-                    b.Property<bool>("NPIStatus");
+                    b.Property<int>("NPIStatus");
 
                     b.Property<string>("Phone")
                         .IsRequired();
@@ -205,11 +203,9 @@ namespace OrBoard.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("DateTimeAvailable");
-
                     b.Property<int>("HospitalId");
 
-                    b.Property<string>("OperatingRoomStatus")
+                    b.Property<string>("OperatingnRoomStatus")
                         .IsRequired()
                         .HasMaxLength(50);
 
@@ -284,7 +280,7 @@ namespace OrBoard.Data.Migrations
 
                     b.Property<int>("HospitalId");
 
-                    b.Property<int?>("NurseId");
+                    b.Property<int>("NurseId");
 
                     b.Property<int>("OperatingRoomId");
 
@@ -344,7 +340,7 @@ namespace OrBoard.Data.Migrations
                     b.Property<int>("NPINumber")
                         .HasMaxLength(10);
 
-                    b.Property<bool>("NPIStatus");
+                    b.Property<int>("NPIStatus");
 
                     b.Property<string>("Phone")
                         .IsRequired();
@@ -367,14 +363,6 @@ namespace OrBoard.Data.Migrations
                 });
 
             modelBuilder.Entity("OrBoard.Domain.Models.Anesthetist", b =>
-                {
-                    b.HasOne("OrBoard.Domain.Models.Login", "Login")
-                        .WithMany()
-                        .HasForeignKey("LoginId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("OrBoard.Domain.Models.Hospital", b =>
                 {
                     b.HasOne("OrBoard.Domain.Models.Login", "Login")
                         .WithMany()

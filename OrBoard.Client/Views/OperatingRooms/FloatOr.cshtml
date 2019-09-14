@@ -1,0 +1,49 @@
+@model OrBoard.Domain.Models.OperatingRoom
+
+
+<h4>Welcome! Please float an Operating room onto to the OrBoard</h4>
+
+@using (Html.BeginForm("FloatOr", "OperatingRooms"))
+{   
+    <div>
+        <span><h5>Operating Room #:</h5></span>
+        <div class="form-group">
+            @Html.LabelFor(o => o.OperatingRoomId)
+                       
+        </div> 
+    </div> 
+    <div>
+        <span><h5>Operating Room Status:</h5></span>
+        <div class="button-radio">
+            @Html.RadioButtonFor(o => o.OpRoomStatus, "In use")   
+            @Html.LabelFor(o => o.OpRoomStatus, "In use")
+        </div>                 
+        <div class="button-radio">
+            @Html.RadioButtonFor(o => o.OpRoomStatus, "Available")   
+            @Html.LabelFor(o => o.OpRoomStatus, "Available") 
+        </div>
+        <div class="button-radio">
+            @Html.RadioButtonFor(o => o.OpRoomStatus, "Closed")   
+            @Html.LabelFor(o => o.OpRoomStatus, "Closed") 
+        </div>
+        <div class="button-radio">
+            @Html.RadioButtonFor(o => o.OpRoomStatus, "Booked")   
+            @Html.LabelFor(o => o.OpRoomStatus, "Booked") 
+        </div>             
+    </div>
+    <div>
+        <span><h5>Next Available Slot:</h5></span>
+            <div class="form-group">        
+                @Html.LabelFor(o => o.DateTimeAvailable)
+                @Html.EditorFor(o => o.DateTimeAvailable, new { @class = "form-control" })            
+            </div> 
+            <hr/>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" value="Submit">Save</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>  
+        
+    </div>  
+    
+    
+}

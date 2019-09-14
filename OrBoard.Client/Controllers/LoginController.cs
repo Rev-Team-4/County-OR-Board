@@ -7,6 +7,7 @@ namespace OrBoard.Client.Controllers
 {
     public class LoginController : Controller
     {
+        public static int LoggedInUser;
         private OrBoardDbContext _db = new OrBoardDbContext();
         public static Login Login { get; set; }
         public IActionResult Index()
@@ -16,7 +17,7 @@ namespace OrBoard.Client.Controllers
                 Login = new Login();
                 foreach (var item in _db.Logins.ToList())
                 {
-                    Login.LoginList.Add(new Login(){ UserName = item.UserName, Password = item.Password});
+                    Login.LoginList.Add(new Login(){ UserName = item.UserName, Password = item.Password, LoginId = item.LoginId});
                 }
             }
             return View();
@@ -29,7 +30,7 @@ namespace OrBoard.Client.Controllers
             {
                 if(Login.CheckLogin(l.UserName, l.Password))
                 {
-                    CasesController.User = l.UserName;
+                    LoggedInUser = Login.LoginId;
                     return RedirectToAction("Index", "Cases");
                 }
             }
