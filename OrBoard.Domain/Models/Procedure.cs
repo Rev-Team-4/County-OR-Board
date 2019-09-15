@@ -49,6 +49,9 @@ namespace OrBoard.Domain.Models
         [DataType(DataType.DateTime)]
         public DateTime ActualFinish { get; set; }
 
+        [Required]
+        public string AnesthetistStatus { get; set; }
+
         public void AddProcedure()
         {
             SurgeonId = 0;

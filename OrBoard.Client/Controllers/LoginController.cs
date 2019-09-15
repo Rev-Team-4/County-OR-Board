@@ -10,6 +10,7 @@ namespace OrBoard.Client.Controllers
         public static int LoggedInUser;
         private OrBoardDbContext _db = new OrBoardDbContext();
         public static Login Login { get; set; }
+
         public IActionResult Index()
         {
             if(Login == null)
@@ -17,7 +18,7 @@ namespace OrBoard.Client.Controllers
                 Login = new Login();
                 foreach (var item in _db.Logins.ToList())
                 {
-                    Login.LoginList.Add(new Login(){ UserName = item.UserName, Password = item.Password, LoginId = item.LoginId});
+                    Login.LoginList.Add(item);
                 }
             }
             return View();
@@ -31,7 +32,21 @@ namespace OrBoard.Client.Controllers
                 if(Login.CheckLogin(l.UserName, l.Password))
                 {
                     LoggedInUser = Login.LoginId;
-                    return RedirectToAction("Index", "Cases");
+                    foreach (var item in _db.Surgeons)
+                    {
+                        if(LoggedInUser == item.LoginId)
+                        {
+                            return RedirectToAction("Index", "Cases");
+                        }
+                    }
+                    
+                    foreach (var item in _db.Anesthetists)
+                    {
+                        if(LoggedInUser == item.LoginId)
+                        {
+                            return RedirectToAction("Index", "AnesthCases");
+                        }                        
+                    }
                 }
             }
             return View();

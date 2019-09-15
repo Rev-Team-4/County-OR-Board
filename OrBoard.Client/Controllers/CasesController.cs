@@ -13,7 +13,6 @@ namespace OrBoard.Client.Controllers
     public class CasesController : Controller
     {   
         CasesViewModel cvm = new CasesViewModel();
-        public OrBoardDbContext _db = new OrBoardDbContext();
         
         public IActionResult Index()
         {
