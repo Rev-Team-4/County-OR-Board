@@ -209,9 +209,11 @@ namespace OrBoard.Data.Migrations
 
                     b.Property<int>("HospitalId");
 
-                    b.Property<string>("OperatingRoomStatus")
-                        .IsRequired()
-                        .HasMaxLength(50);
+                    b.Property<string>("HospitalName")
+                        .IsRequired();
+
+                    b.Property<string>("OpRoomStatus")
+                        .IsRequired();
 
                     b.HasKey("OperatingRoomId");
 
