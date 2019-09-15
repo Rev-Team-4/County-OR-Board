@@ -32,11 +32,13 @@
             </p>
             <p>
                 <label>Actual Start Time</label>
-                <input type="time" asp-for="@Model.Procedure.ActualStart">
+                <input type="date" name="startdate" id="startdate">
+                <input type="time" name="starttime" id="starttime">
             </p>
             <p>
                 <label>Actual Finish Time</label>
-                <input type="time" asp-for="@Model.Procedure.ActualFinish">
+                <input type="date" name="enddate" id="enddate">
+                <input type="time" name="endtime" id ="endtime">
             </p>
             <p>
                 <label>Status</label>

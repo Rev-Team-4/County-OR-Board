@@ -9,14 +9,13 @@ namespace OrBoard.Client.Models
 {
     public class EditCasesViewModel
     {
-        public int EditId { get; set; }
         public Procedure Procedure { get; set; }
         public List<Anesthetist> Anesthetist { get; set; }
         public List<Hospital> Hospital { get; set; }
         public List<OperatingRoom> OperatingRoom { get; set; }
 
         public OrBoardDbContext _db = new OrBoardDbContext();
-        public int SiD { get; set; }
+        public static int SiD { get; set; }
         public static int pId { get; set; }
 
 
@@ -26,7 +25,6 @@ namespace OrBoard.Client.Models
             Anesthetist = new List<Anesthetist>(){};
             Hospital = new List<Hospital>(){};
             OperatingRoom = new List<OperatingRoom>(){};
-            EditId = 0;
         }
 
         public void Read(int id)
@@ -80,9 +78,14 @@ namespace OrBoard.Client.Models
             }
         }
 
-        public void Write()
+        public void Write(string sd, string st, string ed, string et)
         {
             DateTime date = new DateTime();
+
+            sd = Convert.ToDateTime(sd).ToString("yyyy-MM-dd");
+            ed = Convert.ToDateTime(ed).ToString("yyyy-MM-dd");
+            Procedure.ActualStart = DateTime.Parse(sd + " " + st);
+            Procedure.ActualFinish = DateTime.Parse(ed + " " + et);
 
             foreach (var item in _db.Surgeons.ToList())
             {
