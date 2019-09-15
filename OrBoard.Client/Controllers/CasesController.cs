@@ -9,20 +9,16 @@ using OrBoard.Data;
 using OrBoard.Domain.Models;
 
 namespace OrBoard.Client.Controllers
-{
+{    
     public class CasesController : Controller
     {   
-        public Procedure p = new Procedure();
+        CasesViewModel cvm = new CasesViewModel();
         public OrBoardDbContext _db = new OrBoardDbContext();
         
         public IActionResult Index()
         {
-            p.ProcedureList = new List<Procedure>();
-            foreach (var item in _db.Procedures.ToList())
-            {
-                p.ProcedureList.Add(item);
-            }
-            return View(p);
+            cvm.Read();
+            return View(cvm);
         }
 
         public IActionResult EditCases(int editid)

@@ -1,4 +1,4 @@
-@model OrBoard.Domain.Models.Procedure
+@model OrBoard.Client.Models.CasesViewModel
 
 <div class="table-responsive" style="position: relative; left: 40px;">
     <table class="table table-bordered table-sm" style="font-size: 12px;">
@@ -28,10 +28,22 @@
                         @item.ScheduledDateTime
                     </td>
                     <td>
-                        @item.AnesthetistId
+                        @foreach (var item2 in Model.AnesthetistList)
+                        {
+                            if(item.AnesthetistId == item2.AnesthetistId)
+                            {
+                                @item2.FirstName@:&nbsp;@item2.LastName
+                            }
+                        }
                     </td>
                     <td>
-                        @item.NurseId
+                        @foreach (var item2 in Model.NurseList)
+                        {
+                            if(item.NurseId == item2.NurseId)
+                            {
+                                @item2.FirstName@:&nbsp;@item2.LastName
+                            }
+                        }
                     </td>
                     <td>
                         @item.Status
