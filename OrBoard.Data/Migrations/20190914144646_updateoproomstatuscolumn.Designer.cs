@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OrBoard.Data;
 
 namespace OrBoard.Data.Migrations
 {
     [DbContext(typeof(OrBoardDbContext))]
-    partial class OrBoardDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190914144646_updateoproomstatuscolumn")]
+    partial class updateoproomstatuscolumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -210,11 +212,10 @@ namespace OrBoard.Data.Migrations
                     b.Property<int>("HospitalId");
 
                     b.Property<string>("OpRoomStatus")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(50);
 
                     b.HasKey("OperatingRoomId");
-
-                    b.HasIndex("HospitalId");
 
                     b.ToTable("OperatingRooms");
                 });
@@ -279,8 +280,6 @@ namespace OrBoard.Data.Migrations
                     b.Property<DateTime>("ActualStart");
 
                     b.Property<int>("AnesthetistId");
-
-                    b.Property<string>("AnesthetistStatus");
 
                     b.Property<string>("EstimatedProcedureLength")
                         .IsRequired();
@@ -390,14 +389,6 @@ namespace OrBoard.Data.Migrations
                     b.HasOne("OrBoard.Domain.Models.Login", "Login")
                         .WithMany()
                         .HasForeignKey("LoginId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("OrBoard.Domain.Models.OperatingRoom", b =>
-                {
-                    b.HasOne("OrBoard.Domain.Models.Hospital", "Hospital")
-                        .WithMany()
-                        .HasForeignKey("HospitalId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

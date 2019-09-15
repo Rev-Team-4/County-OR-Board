@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using OrBoard.Client.Models;
@@ -9,55 +10,24 @@ namespace OrBoard.Client.Controllers
     public class EditCasesController : Controller
     {
         public OrBoardDbContext _db = new OrBoardDbContext();
-        public NewCaseViewModel ncm = new NewCaseViewModel();
-        public Procedure p = new Procedure();
-        public int SiD { get; set; }
+        public EditCasesViewModel ecvm = new EditCasesViewModel();
+        public static int pId { get; set; }
 
-        public IActionResult Index()
+        public IActionResult Index(int id)
         {
-            int test = p.ProcedureId;
-            foreach (var item in _db.Surgeons.ToList())
+            pId = id;
+            ecvm.Read(id);
+            return View(ecvm);
+        }
+
+        [HttpPost]
+        public IActionResult Index(EditCasesViewModel e, string startdate, string starttime, string enddate, string endtime)
+        {
+            if(ModelState.IsValid)
             {
-                if (item.LoginId == LoginController.LoggedInUser)
-                {
-                    SiD = item.SurgeonId;
-                }
+                e.Write(startdate,starttime,enddate,endtime);
             }
-
-            foreach (var item in _db.Anesthetists.ToList())
-            {
-                ncm.Anesthetist.Add(new Anesthetist() { FirstName = item.FirstName, LastName = item.LastName, AnesthetistId = item.AnesthetistId });
-            }
-
-            foreach (var item in _db.Hospitals.ToList())
-            {
-                ncm.Hospital.Add(new Hospital() { Name = item.Name, HospitalId = item.HospitalId });
-            }
-
-            foreach (var item in _db.OperatingRooms.ToList())
-            {
-                ncm.OperatingRoom.Add(new OperatingRoom()
-                {
-                    OperatingRoomId = item.OperatingRoomId,
-                    OpRoomStatus = item.OpRoomStatus,
-                    HospitalId = item.HospitalId,
-                    DateTimeAvailable = item.DateTimeAvailable
-                });
-            }
-
-            foreach (var item in ncm.OperatingRoom)
-            {
-                foreach (var x in ncm.Hospital)
-
-                {
-                    if (item.HospitalId == x.HospitalId)
-                    {
-                        item.HospitalName = x.Name;
-                    }
-                }
-            }
-
-            return View(ncm);
+            return RedirectToAction("Index", "Cases");
         }
     }
 }

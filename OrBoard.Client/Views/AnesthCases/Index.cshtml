@@ -1,0 +1,39 @@
+@model OrBoard.Client.Models.AnesthCasesViewModel
+
+<div class="table-responsive" style="position: relative; left: 40px;">
+    <table class="table table-bordered table-sm" style="font-size: 12px;">
+        <thead>
+            <tr>
+                <th>Case #</th>
+                <th>Procedure</th>
+                <th>Scheduled Date</th>
+                <th>Status</th>
+                <th>Availability</th>
+            </tr>
+            @foreach (var item in Model.ProcedureList)
+            {
+                <tr>
+                    <td>
+                        @item.ProcedureId
+                    </td>
+                    <td>
+                        @item.ProcedureName
+                    </td>
+                    <td>
+                        @item.ScheduledDateTime
+                    </td>
+                    <td>
+                        @item.AnesthetistStatus
+                    </td>
+                    <td>
+                        <form asp-controller="AnesthCases" asp-action="SetStatus"> 
+                            <button type="submit" value="Available" name="avail">Available</button>
+                            <button type="submit" value="Unavailable" name="avail">Unavailable</button>
+                            <input type="hidden" value="@item.ProcedureId" name="pId">
+                        </form>
+                    </td>
+                </tr>
+            }
+        </thead>
+    </table>
+</div>

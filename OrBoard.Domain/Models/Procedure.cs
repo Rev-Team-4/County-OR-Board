@@ -48,9 +48,8 @@ namespace OrBoard.Domain.Models
        
         [DataType(DataType.DateTime)]
         public DateTime ActualFinish { get; set; }
-
-        [NotMapped]
-        public List<Procedure> ProcedureList { get; set; }
+        
+        public string AnesthetistStatus { get; set; }
 
         public void AddProcedure()
         {
@@ -59,7 +58,6 @@ namespace OrBoard.Domain.Models
             HospitalId = 0;
             OperatingRoomId = 0;
             NurseId = 0;
-            ProcedureList = new List<Procedure>(){};
         }
     }
 }

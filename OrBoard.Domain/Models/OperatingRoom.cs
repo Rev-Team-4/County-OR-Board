@@ -9,11 +9,13 @@ namespace OrBoard.Domain.Models
         [Key]
         public int OperatingRoomId { get; set; }
 
-        [ForeignKey("HospitalId")]
+        [ForeignKey("Hospital")]
         [Required]
         public int HospitalId { get; set; }
+        public Hospital Hospital { get; set; }
 
         [Required]
+        [NotMapped]
         public string HospitalName { get; set; }
 
         [DataType(DataType.DateTime)]
