@@ -58,5 +58,17 @@ namespace OrBoard.Domain.Models
         [Required]
         [MaxLength(50)]
         public string State {get; set;}
+
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        public string Telephone {get; set;}
+
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        public string Fax {get; set;}
+
+        [Required]
+        [DataType(DataType.PostalCode)]
+        public string ZipCode {get; set;}
     }
 }
