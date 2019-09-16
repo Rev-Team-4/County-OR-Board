@@ -6,9 +6,23 @@ namespace OrBoard.Tests
     public class AnesthCasesViewModelTests
     {
         [Fact]
-        public void Test1()
-        {
+        public void ReadShouldReadFromDb()
+        {   
+            //Arrange
+            
+            //Act
+            
+            //Assert
+        }
 
+         [Fact]
+        public void WriteShouldWriteToDb()
+        {
+            //Arrange
+            
+            //Act
+            
+            //Assert
         }
     }
 }
