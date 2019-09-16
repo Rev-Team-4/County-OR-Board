@@ -50,7 +50,7 @@ namespace OrBoard.Client.Models
 
         public void WriteToDb()
         {
-             DateTime date = new DateTime();
+             
         }
       
     }
