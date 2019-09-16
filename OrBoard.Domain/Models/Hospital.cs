@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OrBoard.Domain.Models
 {
+
     public class Hospital
     {
         [Key]
@@ -11,6 +12,7 @@ namespace OrBoard.Domain.Models
 
         [ForeignKey("LoginId")]
         public int LoginId { get; set; }
+
         public Login Login { get; set; }
 
         [Required]
@@ -34,14 +36,14 @@ namespace OrBoard.Domain.Models
         public string ManagerEmail {get; set;}
 
         [Required]
-        [Range(0, int.MaxValue)]
+        //[Range(0, int.MaxValue)]
         public int LicenseNumber {get; set;}
 
         [Required]
         public bool LicenseStatus {get; set;}
 
         [Required]
-        [Range(0, int.MaxValue)]
+        //[Range(0, int.MaxValue)]
         public int EINNumber {get; set;}
 
         [Required]
