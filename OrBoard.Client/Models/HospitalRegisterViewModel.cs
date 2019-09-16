@@ -49,7 +49,7 @@ namespace OrBoard.Client.Models
           {
             UserName = newHospital.UserName,
             Password = newHospital.Password,
-            CreationDateTime = newHospital.CreationDateTime
+            CreationDateTime = DateTime.Now
           };
         }
 

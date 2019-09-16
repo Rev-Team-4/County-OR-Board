@@ -13,13 +13,10 @@ namespace OrBoard.Client.Controllers
 
         public IActionResult Index()
         {
-            if(Login == null)
+            Login = new Login();
+            foreach (var item in _db.Logins.ToList())
             {
-                Login = new Login();
-                foreach (var item in _db.Logins.ToList())
-                {
-                    Login.LoginList.Add(item);
-                }
+                Login.LoginList.Add(item);
             }
             return View();
         }
@@ -46,6 +43,14 @@ namespace OrBoard.Client.Controllers
                         {
                             return RedirectToAction("Index", "AnesthCases");
                         }                        
+                    }
+
+                    foreach (var item in _db.Hospitals)
+                    {
+                        if(LoggedInUser == item.LoginId)
+                        {
+                            return RedirectToAction("Index", "");
+                        }
                     }
                 }
             }
