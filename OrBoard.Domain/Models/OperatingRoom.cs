@@ -12,17 +12,21 @@ namespace OrBoard.Domain.Models
         [ForeignKey("Hospital")]
         [Required]
         public int HospitalId { get; set; }
-        public Hospital Hospital { get; set; }
+        [Required]
+        [Display(Name = "Room Name")]
+        public string OrName { get; set; }
 
         [Required]
         [NotMapped]
         public string HospitalName { get; set; }
 
         [DataType(DataType.DateTime)]
-        [Display(Name = "Date and Time")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd:HH:mm:ss}")] 
+        [Display(Name = "Next Avaialbe Date and Time")]   
         public DateTime DateTimeAvailable { get; set; }
 
         [Required]
+        [Display(Name = "Room Status")]
         public string OpRoomStatus { get; set; }
 
 

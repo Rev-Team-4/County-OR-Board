@@ -10,8 +10,8 @@ using OrBoard.Data;
 namespace OrBoard.Data.Migrations
 {
     [DbContext(typeof(OrBoardDbContext))]
-    [Migration("20190914215529_updateorroomtable")]
-    partial class updateorroomtable
+    [Migration("20190914205405_Migration20190914")]
+    partial class Migration20190914
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -211,12 +211,13 @@ namespace OrBoard.Data.Migrations
 
                     b.Property<int>("HospitalId");
 
+                    b.Property<string>("HospitalName")
+                        .IsRequired();
+
                     b.Property<string>("OpRoomStatus")
                         .IsRequired();
 
                     b.HasKey("OperatingRoomId");
-
-                    b.HasIndex("HospitalId");
 
                     b.ToTable("OperatingRooms");
                 });
@@ -390,14 +391,6 @@ namespace OrBoard.Data.Migrations
                     b.HasOne("OrBoard.Domain.Models.Login", "Login")
                         .WithMany()
                         .HasForeignKey("LoginId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("OrBoard.Domain.Models.OperatingRoom", b =>
-                {
-                    b.HasOne("OrBoard.Domain.Models.Hospital", "Hospital")
-                        .WithMany()
-                        .HasForeignKey("HospitalId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

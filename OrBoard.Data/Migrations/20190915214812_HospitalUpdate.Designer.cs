@@ -10,8 +10,8 @@ using OrBoard.Data;
 namespace OrBoard.Data.Migrations
 {
     [DbContext(typeof(OrBoardDbContext))]
-    [Migration("20190915021837_updateproceduretable")]
-    partial class updateproceduretable
+    [Migration("20190915214812_HospitalUpdate")]
+    partial class HospitalUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -100,6 +100,8 @@ namespace OrBoard.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
+                    b.Property<string>("Fax");
+
                     b.Property<int>("LicenseNumber");
 
                     b.Property<bool>("LicenseStatus");
@@ -121,6 +123,10 @@ namespace OrBoard.Data.Migrations
                     b.Property<string>("State")
                         .IsRequired()
                         .HasMaxLength(50);
+
+                    b.Property<string>("Telephone");
+
+                    b.Property<string>("ZipCode");
 
                     b.HasKey("HospitalId");
 
@@ -211,12 +217,13 @@ namespace OrBoard.Data.Migrations
 
                     b.Property<int>("HospitalId");
 
+                    b.Property<string>("HospitalName")
+                        .IsRequired();
+
                     b.Property<string>("OpRoomStatus")
                         .IsRequired();
 
                     b.HasKey("OperatingRoomId");
-
-                    b.HasIndex("HospitalId");
 
                     b.ToTable("OperatingRooms");
                 });
@@ -281,9 +288,6 @@ namespace OrBoard.Data.Migrations
                     b.Property<DateTime>("ActualStart");
 
                     b.Property<int>("AnesthetistId");
-
-                    b.Property<string>("AnesthetistStatus")
-                        .IsRequired();
 
                     b.Property<string>("EstimatedProcedureLength")
                         .IsRequired();
@@ -393,14 +397,6 @@ namespace OrBoard.Data.Migrations
                     b.HasOne("OrBoard.Domain.Models.Login", "Login")
                         .WithMany()
                         .HasForeignKey("LoginId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("OrBoard.Domain.Models.OperatingRoom", b =>
-                {
-                    b.HasOne("OrBoard.Domain.Models.Hospital", "Hospital")
-                        .WithMany()
-                        .HasForeignKey("HospitalId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

@@ -2,27 +2,24 @@
 
 namespace OrBoard.Data.Migrations
 {
-    public partial class updatehospitaltable : Migration
+    public partial class HospitalUpdate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
                 name: "Fax",
                 table: "Hospitals",
-                nullable: false,
-                defaultValue: "");
+                nullable: true);
 
             migrationBuilder.AddColumn<string>(
                 name: "Telephone",
                 table: "Hospitals",
-                nullable: false,
-                defaultValue: "");
+                nullable: true);
 
             migrationBuilder.AddColumn<string>(
                 name: "ZipCode",
                 table: "Hospitals",
-                nullable: false,
-                defaultValue: "");
+                nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
