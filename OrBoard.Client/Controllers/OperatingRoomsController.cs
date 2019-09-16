@@ -21,7 +21,7 @@ namespace OrBoard.Client.Controllers
         public IActionResult ViewRooms()
         {   
             orvm.ReadFromDb();
-            hId = orvm.hId;
+            hId = OperatingRoomsViewModel.hId;
             return View(orvm);
         }
 
@@ -50,10 +50,19 @@ namespace OrBoard.Client.Controllers
             return RedirectToAction("ViewRooms");
         }
 
+        [HttpGet]
         public IActionResult FloatOr(int orid, string date, string time)
         {
+            OperatingRoomsViewModel.orId = orid;
             orvm.ReadOr(orid);
             return View(orvm);
+        }
+
+        [HttpPost]
+        public IActionResult FloatOr(OperatingRoomsViewModel ovm, string date, string time)
+        {
+            ovm.WriteToDb(date, time);
+            return RedirectToAction("ViewRooms");
         }
     
 

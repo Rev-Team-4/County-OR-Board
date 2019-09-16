@@ -30,7 +30,7 @@
                 <td>@Html.DisplayFor(modelItem => item.DateTimeAvailable)
                 </td>                           
                 <td>                
-                    <form asp-controller="OperatingRooms" asp-action="FloatOr">
+                    <form asp-controller="OperatingRooms" asp-action="FloatOr" method="get">
                         <button class="btn btn-primary" type="submit" value="@item.OperatingRoomId" name="orid" id="orid">Edit</button>
                     </form>
                 </td>

@@ -16,7 +16,8 @@ namespace OrBoard.Client.Models
       public List<Hospital> Hospitals { get; set; }
       public Procedure Procedure { get; set; }
       public List<Procedure> Procedures { get; set; } 
-      public int hId = 0;
+      public static int hId;
+      public static int orId;
       public string date;
       public string time;
 
@@ -79,16 +80,25 @@ namespace OrBoard.Client.Models
                 if(item.OperatingRoomId == id)
                 {
                     OperatingRoom = item;
-                    string[] sa = item.DateTimeAvailable.ToString("MM/dd/yyyy HH:MM").Split(" ");
+                    string[] sa = item.DateTimeAvailable.ToString("yyyy-MM-dd HH:mm").Split(" ");
                     date = sa.ElementAt(0);
                     time = sa.ElementAt(1);
                 }
             }
         }
 
-        public void WriteToDb()
+        public void WriteToDb(string date, string time)
         {
-             
+            date = Convert.ToDateTime(date).ToString("yyyy-MM-dd");
+            OperatingRoom.DateTimeAvailable = DateTime.Parse(date + " " + time);
+            var update = _db.OperatingRooms.SingleOrDefault(o => o.OperatingRoomId == orId);
+            
+            if(update != null)
+            {
+                update.OpRoomStatus = OperatingRoom.OpRoomStatus;
+                update.DateTimeAvailable = OperatingRoom.DateTimeAvailable;
+                _db.SaveChanges();
+            }
         }
       
     }
