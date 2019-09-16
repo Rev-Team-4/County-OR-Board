@@ -1,0 +1,43 @@
+@model IEnumerable<OrBoard.Domain.Models.OperatingRoom>;
+
+<h6>
+  <legend>Operating Rooms:</legend>
+
+    <table class="table table-hover">
+            <tr class="table-active table-primary">
+                <th>@Html.DisplayNameFor(model => model.OperatingRoomId)
+                </th>          
+                <th>@Html.DisplayNameFor(model => model.OrName)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.HospitalName)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.OpRoomStatus)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.DateTimeAvailable)
+                </th>               
+                <th></th>
+            </tr>
+            @foreach (var item in Model) {
+            <tr class="table-active table-primary">
+                <td>@Html.DisplayFor(modelItem => item.OperatingRoomId)
+                </td>         
+                <td>@Html.DisplayFor(modelItem => item.OrName)
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.HospitalName)
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.OpRoomStatus)
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.DateTimeAvailable)
+                </td>                           
+                <td>                
+                    <h6><a class="nav-link" asp-area="" asp-controller="OperatingRooms" asp-action="DeleteRoom" asp-route-id="@item.OperatingRoomId">Remove</a><h6>
+                </td>
+                <td>                
+                    <h6><a class="nav-link" asp-area="" asp-controller="OperatingRooms" asp-action="ViewDetailRoom">Details</a><h6>
+                </td>
+            </tr>
+            }
+        </table>
+    <h6><a class="nav-link" asp-area="" asp-controller="OperatingRooms" asp-action="AddNewRoom">Add new Operating Room</a></h6>
+    <h6><a class="nav-link" asp-area="" asp-controller="OperatingRooms" asp-action="FloatRoom">Float Operating Room</a></h6>
+</h6>
