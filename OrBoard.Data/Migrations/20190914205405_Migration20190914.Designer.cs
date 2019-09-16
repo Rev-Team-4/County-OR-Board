@@ -10,8 +10,8 @@ using OrBoard.Data;
 namespace OrBoard.Data.Migrations
 {
     [DbContext(typeof(OrBoardDbContext))]
-    [Migration("20190911031359_third migration")]
-    partial class thirdmigration
+    [Migration("20190914205405_Migration20190914")]
+    partial class Migration20190914
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,7 +52,7 @@ namespace OrBoard.Data.Migrations
                     b.Property<int>("NPINumber")
                         .HasMaxLength(10);
 
-                    b.Property<int>("NPIStatus");
+                    b.Property<bool>("NPIStatus");
 
                     b.Property<string>("Phone")
                         .IsRequired();
@@ -68,6 +68,8 @@ namespace OrBoard.Data.Migrations
                     b.Property<int>("Zip");
 
                     b.HasKey("AnesthetistId");
+
+                    b.HasIndex("LoginId");
 
                     b.ToTable("Anesthetists");
                 });
@@ -102,6 +104,8 @@ namespace OrBoard.Data.Migrations
 
                     b.Property<bool>("LicenseStatus");
 
+                    b.Property<int>("LoginId");
+
                     b.Property<string>("ManagerEmail")
                         .IsRequired()
                         .HasMaxLength(50);
@@ -119,6 +123,8 @@ namespace OrBoard.Data.Migrations
                         .HasMaxLength(50);
 
                     b.HasKey("HospitalId");
+
+                    b.HasIndex("LoginId");
 
                     b.ToTable("Hospitals");
                 });
@@ -144,7 +150,7 @@ namespace OrBoard.Data.Migrations
 
             modelBuilder.Entity("OrBoard.Domain.Models.Nurse", b =>
                 {
-                    b.Property<int>("NurseId")
+                    b.Property<int?>("NurseId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -164,11 +170,16 @@ namespace OrBoard.Data.Migrations
                         .HasMaxLength(50);
 
                     b.Property<int>("LicenseNumber")
-                        .HasMaxLength(8);
+                        .HasMaxLength(10);
 
                     b.Property<bool>("LicenseStatus");
 
                     b.Property<int>("LoginId");
+
+                    b.Property<int>("NPINumber")
+                        .HasMaxLength(10);
+
+                    b.Property<bool>("NPIStatus");
 
                     b.Property<string>("Phone")
                         .IsRequired();
@@ -185,6 +196,8 @@ namespace OrBoard.Data.Migrations
 
                     b.HasKey("NurseId");
 
+                    b.HasIndex("LoginId");
+
                     b.ToTable("Nurses");
                 });
 
@@ -194,11 +207,15 @@ namespace OrBoard.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("DateTimeAvailable");
+
                     b.Property<int>("HospitalId");
 
-                    b.Property<string>("OperatingnRoomStatus")
-                        .IsRequired()
-                        .HasMaxLength(50);
+                    b.Property<string>("HospitalName")
+                        .IsRequired();
+
+                    b.Property<string>("OpRoomStatus")
+                        .IsRequired();
 
                     b.HasKey("OperatingRoomId");
 
@@ -249,6 +266,8 @@ namespace OrBoard.Data.Migrations
 
                     b.HasKey("PatientId");
 
+                    b.HasIndex("LoginId");
+
                     b.ToTable("Patients");
                 });
 
@@ -269,7 +288,7 @@ namespace OrBoard.Data.Migrations
 
                     b.Property<int>("HospitalId");
 
-                    b.Property<int>("NurseId");
+                    b.Property<int?>("NurseId");
 
                     b.Property<int>("OperatingRoomId");
 
@@ -284,6 +303,16 @@ namespace OrBoard.Data.Migrations
                     b.Property<int>("SurgeonId");
 
                     b.HasKey("ProcedureId");
+
+                    b.HasIndex("AnesthetistId");
+
+                    b.HasIndex("HospitalId");
+
+                    b.HasIndex("NurseId");
+
+                    b.HasIndex("OperatingRoomId");
+
+                    b.HasIndex("SurgeonId");
 
                     b.ToTable("Procedures");
                 });
@@ -319,7 +348,7 @@ namespace OrBoard.Data.Migrations
                     b.Property<int>("NPINumber")
                         .HasMaxLength(10);
 
-                    b.Property<int>("NPIStatus");
+                    b.Property<bool>("NPIStatus");
 
                     b.Property<string>("Phone")
                         .IsRequired();
@@ -336,7 +365,77 @@ namespace OrBoard.Data.Migrations
 
                     b.HasKey("SurgeonId");
 
+                    b.HasIndex("LoginId");
+
                     b.ToTable("Surgeons");
+                });
+
+            modelBuilder.Entity("OrBoard.Domain.Models.Anesthetist", b =>
+                {
+                    b.HasOne("OrBoard.Domain.Models.Login", "Login")
+                        .WithMany()
+                        .HasForeignKey("LoginId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("OrBoard.Domain.Models.Hospital", b =>
+                {
+                    b.HasOne("OrBoard.Domain.Models.Login", "Login")
+                        .WithMany()
+                        .HasForeignKey("LoginId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("OrBoard.Domain.Models.Nurse", b =>
+                {
+                    b.HasOne("OrBoard.Domain.Models.Login", "Login")
+                        .WithMany()
+                        .HasForeignKey("LoginId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("OrBoard.Domain.Models.Patient", b =>
+                {
+                    b.HasOne("OrBoard.Domain.Models.Login", "Login")
+                        .WithMany()
+                        .HasForeignKey("LoginId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("OrBoard.Domain.Models.Procedure", b =>
+                {
+                    b.HasOne("OrBoard.Domain.Models.Anesthetist", "Anesthetist")
+                        .WithMany()
+                        .HasForeignKey("AnesthetistId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("OrBoard.Domain.Models.Hospital", "Hospital")
+                        .WithMany()
+                        .HasForeignKey("HospitalId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("OrBoard.Domain.Models.Nurse", "Nurse")
+                        .WithMany()
+                        .HasForeignKey("NurseId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("OrBoard.Domain.Models.OperatingRoom", "OperatingRoom")
+                        .WithMany()
+                        .HasForeignKey("OperatingRoomId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("OrBoard.Domain.Models.Surgeon", "Surgeon")
+                        .WithMany()
+                        .HasForeignKey("SurgeonId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("OrBoard.Domain.Models.Surgeon", b =>
+                {
+                    b.HasOne("OrBoard.Domain.Models.Login", "Login")
+                        .WithMany()
+                        .HasForeignKey("LoginId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }
