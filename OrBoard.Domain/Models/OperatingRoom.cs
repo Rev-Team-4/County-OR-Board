@@ -12,7 +12,9 @@ namespace OrBoard.Domain.Models
         [ForeignKey("Hospital")]
         [Required]
         public int HospitalId { get; set; }
-        public Hospital Hospital { get; set; }
+        [Required]
+        [Display(Name = "Room Name")]
+        public string OrName { get; set; }
 
         [Required]
         [NotMapped]
