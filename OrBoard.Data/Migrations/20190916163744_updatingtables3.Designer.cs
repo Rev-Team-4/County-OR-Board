@@ -10,8 +10,8 @@ using OrBoard.Data;
 namespace OrBoard.Data.Migrations
 {
     [DbContext(typeof(OrBoardDbContext))]
-    [Migration("20190915214812_HospitalUpdate")]
-    partial class HospitalUpdate
+    [Migration("20190916163744_updatingtables3")]
+    partial class updatingtables3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,15 +42,13 @@ namespace OrBoard.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<int>("LicenseNumber")
-                        .HasMaxLength(10);
+                    b.Property<int>("LicenseNumber");
 
                     b.Property<bool>("LicenseStatus");
 
                     b.Property<int>("LoginId");
 
-                    b.Property<int>("NPINumber")
-                        .HasMaxLength(10);
+                    b.Property<int>("NPINumber");
 
                     b.Property<bool>("NPIStatus");
 
@@ -100,7 +98,8 @@ namespace OrBoard.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<string>("Fax");
+                    b.Property<string>("Fax")
+                        .IsRequired();
 
                     b.Property<int>("LicenseNumber");
 
@@ -124,9 +123,11 @@ namespace OrBoard.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<string>("Telephone");
+                    b.Property<string>("Telephone")
+                        .IsRequired();
 
-                    b.Property<string>("ZipCode");
+                    b.Property<string>("ZipCode")
+                        .IsRequired();
 
                     b.HasKey("HospitalId");
 
@@ -175,15 +176,13 @@ namespace OrBoard.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<int>("LicenseNumber")
-                        .HasMaxLength(10);
+                    b.Property<int>("LicenseNumber");
 
                     b.Property<bool>("LicenseStatus");
 
                     b.Property<int>("LoginId");
 
-                    b.Property<int>("NPINumber")
-                        .HasMaxLength(10);
+                    b.Property<int>("NPINumber");
 
                     b.Property<bool>("NPIStatus");
 
@@ -217,10 +216,10 @@ namespace OrBoard.Data.Migrations
 
                     b.Property<int>("HospitalId");
 
-                    b.Property<string>("HospitalName")
+                    b.Property<string>("OpRoomStatus")
                         .IsRequired();
 
-                    b.Property<string>("OpRoomStatus")
+                    b.Property<string>("OrName")
                         .IsRequired();
 
                     b.HasKey("OperatingRoomId");
@@ -289,6 +288,8 @@ namespace OrBoard.Data.Migrations
 
                     b.Property<int>("AnesthetistId");
 
+                    b.Property<string>("AnesthetistStatus");
+
                     b.Property<string>("EstimatedProcedureLength")
                         .IsRequired();
 
@@ -344,15 +345,13 @@ namespace OrBoard.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<int>("LicenseNumber")
-                        .HasMaxLength(10);
+                    b.Property<int>("LicenseNumber");
 
                     b.Property<bool>("LicenseStatus");
 
                     b.Property<int>("LoginId");
 
-                    b.Property<int>("NPINumber")
-                        .HasMaxLength(10);
+                    b.Property<int>("NPINumber");
 
                     b.Property<bool>("NPIStatus");
 

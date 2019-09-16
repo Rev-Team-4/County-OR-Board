@@ -1,23 +1,23 @@
-@model IEnumerable<OrBoard.Domain.Models.OperatingRoom>;
+@model OrBoard.Client.Models.OperatingRoomsViewModel
 
 <h6>
   <legend>Operating Rooms:</legend>
 
     <table class="table table-hover">
             <tr class="table-active table-primary">
-                <th>@Html.DisplayNameFor(model => model.OperatingRoomId)
+                <th>@Html.DisplayNameFor(model => model.OperatingRoom.OperatingRoomId)
                 </th>          
-                <th>@Html.DisplayNameFor(model => model.OrName)
+                <th>@Html.DisplayNameFor(model => model.OperatingRoom.OrName)
                 </th>
-                <th>@Html.DisplayNameFor(model => model.HospitalName)
+                <th>@Html.DisplayNameFor(model => model.OperatingRoom.HospitalName)
                 </th>
-                <th>@Html.DisplayNameFor(model => model.OpRoomStatus)
+                <th>@Html.DisplayNameFor(model => model.OperatingRoom.OpRoomStatus)
                 </th>
-                <th>@Html.DisplayNameFor(model => model.DateTimeAvailable)
+                <th>@Html.DisplayNameFor(model => model.OperatingRoom.DateTimeAvailable)
                 </th>               
                 <th></th>
             </tr>
-            @foreach (var item in Model) {
+            @foreach (var item in Model.OpRooms) {
             <tr class="table-active table-primary">
                 <td>@Html.DisplayFor(modelItem => item.OperatingRoomId)
                 </td>         
@@ -30,10 +30,9 @@
                 <td>@Html.DisplayFor(modelItem => item.DateTimeAvailable)
                 </td>                           
                 <td>                
-                    <h6><a class="nav-link" asp-area="" asp-controller="OperatingRooms" asp-action="DeleteRoom" asp-route-id="@item.OperatingRoomId">Remove</a><h6>
-                </td>
-                <td>                
-                    <h6><a class="nav-link" asp-area="" asp-controller="OperatingRooms" asp-action="ViewDetailRoom">Details</a><h6>
+                    <form asp-controller="OperatingRooms" asp-action="FloatOr">
+                        <button class="btn btn-primary" type="submit" value="@item.OperatingRoomId" name="orid" id="orid">Edit</button>
+                    </form>
                 </td>
             </tr>
             }

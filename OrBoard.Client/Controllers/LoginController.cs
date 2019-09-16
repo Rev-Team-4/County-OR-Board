@@ -49,7 +49,7 @@ namespace OrBoard.Client.Controllers
                     {
                         if(LoggedInUser == item.LoginId)
                         {
-                            return RedirectToAction("Index", "");
+                            return RedirectToAction("ViewRooms", "OperatingRooms");
                         }
                     }
                 }

@@ -40,15 +40,13 @@ namespace OrBoard.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<int>("LicenseNumber")
-                        .HasMaxLength(10);
+                    b.Property<int>("LicenseNumber");
 
                     b.Property<bool>("LicenseStatus");
 
                     b.Property<int>("LoginId");
 
-                    b.Property<int>("NPINumber")
-                        .HasMaxLength(10);
+                    b.Property<int>("NPINumber");
 
                     b.Property<bool>("NPIStatus");
 
@@ -176,15 +174,13 @@ namespace OrBoard.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<int>("LicenseNumber")
-                        .HasMaxLength(10);
+                    b.Property<int>("LicenseNumber");
 
                     b.Property<bool>("LicenseStatus");
 
                     b.Property<int>("LoginId");
 
-                    b.Property<int>("NPINumber")
-                        .HasMaxLength(10);
+                    b.Property<int>("NPINumber");
 
                     b.Property<bool>("NPIStatus");
 
@@ -221,9 +217,10 @@ namespace OrBoard.Data.Migrations
                     b.Property<string>("OpRoomStatus")
                         .IsRequired();
 
-                    b.HasKey("OperatingRoomId");
+                    b.Property<string>("OrName")
+                        .IsRequired();
 
-                    b.HasIndex("HospitalId");
+                    b.HasKey("OperatingRoomId");
 
                     b.ToTable("OperatingRooms");
                 });
@@ -346,15 +343,13 @@ namespace OrBoard.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<int>("LicenseNumber")
-                        .HasMaxLength(10);
+                    b.Property<int>("LicenseNumber");
 
                     b.Property<bool>("LicenseStatus");
 
                     b.Property<int>("LoginId");
 
-                    b.Property<int>("NPINumber")
-                        .HasMaxLength(10);
+                    b.Property<int>("NPINumber");
 
                     b.Property<bool>("NPIStatus");
 
@@ -399,14 +394,6 @@ namespace OrBoard.Data.Migrations
                     b.HasOne("OrBoard.Domain.Models.Login", "Login")
                         .WithMany()
                         .HasForeignKey("LoginId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("OrBoard.Domain.Models.OperatingRoom", b =>
-                {
-                    b.HasOne("OrBoard.Domain.Models.Hospital", "Hospital")
-                        .WithMany()
-                        .HasForeignKey("HospitalId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

@@ -13,13 +13,18 @@ namespace OrBoard.Client.Controllers
     public class OperatingRoomsController : Controller
     {
         OrBoardDbContext _db = new OrBoardDbContext();
+        OperatingRoomsViewModel orvm = new OperatingRoomsViewModel();
+
+        public static int hId;
 
         [HttpGet]
         public IActionResult ViewRooms()
         {   
-            var operatingRooms =  _db.OperatingRooms.ToList();
-            return View(operatingRooms);
+            orvm.ReadFromDb();
+            hId = orvm.hId;
+            return View(orvm);
         }
+
         [HttpGet]
         public IActionResult ViewHospitals()
         {   
@@ -32,18 +37,25 @@ namespace OrBoard.Client.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult AddNewRoom(OperatingRoom operatingRoom )
         {   
              if(ModelState.IsValid)
             {
+                operatingRoom.HospitalId = hId;
                 _db.OperatingRooms.Add(operatingRoom);
                 _db.SaveChanges();
             }           
             return RedirectToAction("ViewRooms");
         }
-        
 
+        public IActionResult FloatOr(int orid, string date, string time)
+        {
+            orvm.ReadOr(orid);
+            return View(orvm);
+        }
+    
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
