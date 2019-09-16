@@ -38,7 +38,7 @@ namespace OrBoard.Client.Models
       {
         UserName = NewProvider.UserName,
         Password = NewProvider.Password,
-        CreationDateTime = NewProvider.CreationDateTime
+        CreationDateTime = DateTime.Now
       };
     }
     public static implicit operator Nurse(ProviderRegisterViewModel NewProvider)

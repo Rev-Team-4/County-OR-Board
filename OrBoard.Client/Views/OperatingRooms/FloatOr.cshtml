@@ -1,4 +1,4 @@
-@model OrBoard.Domain.Models.OperatingRoom
+@model OrBoard.Client.Models.OperatingRoomsViewModel
 
 
 <h4>Welcome! Please float an Operating room onto to the OrBoard</h4>
@@ -8,41 +8,38 @@
     <div>
         <span><h5>Operating Room #:</h5></span>
         <div class="form-group">
-            @Html.LabelFor(o => o.OperatingRoomId)
-                       
+            @Html.DisplayFor(o => o.OperatingRoom.OrName)
         </div> 
     </div> 
     <div>
         <span><h5>Operating Room Status:</h5></span>
         <div class="button-radio">
-            @Html.RadioButtonFor(o => o.OpRoomStatus, "In use")   
-            @Html.LabelFor(o => o.OpRoomStatus, "In use")
+            @Html.RadioButtonFor(o => o.OperatingRoom.OpRoomStatus, "In use")   
+            @Html.LabelFor(o => o.OperatingRoom.OpRoomStatus, "In use")
         </div>                 
         <div class="button-radio">
-            @Html.RadioButtonFor(o => o.OpRoomStatus, "Available")   
-            @Html.LabelFor(o => o.OpRoomStatus, "Available") 
+            @Html.RadioButtonFor(o => o.OperatingRoom.OpRoomStatus, "Available")   
+            @Html.LabelFor(o => o.OperatingRoom.OpRoomStatus, "Available") 
         </div>
         <div class="button-radio">
-            @Html.RadioButtonFor(o => o.OpRoomStatus, "Closed")   
-            @Html.LabelFor(o => o.OpRoomStatus, "Closed") 
+            @Html.RadioButtonFor(o => o.OperatingRoom.OpRoomStatus, "Closed")   
+            @Html.LabelFor(o => o.OperatingRoom.OpRoomStatus, "Closed") 
         </div>
         <div class="button-radio">
-            @Html.RadioButtonFor(o => o.OpRoomStatus, "Booked")   
-            @Html.LabelFor(o => o.OpRoomStatus, "Booked") 
+            @Html.RadioButtonFor(o => o.OperatingRoom.OpRoomStatus, "Booked")   
+            @Html.LabelFor(o => o.OperatingRoom.OpRoomStatus, "Booked") 
         </div>             
     </div>
     <div>
         <span><h5>Next Available Slot:</h5></span>
-            <div class="form-group">        
-                @Html.LabelFor(o => o.DateTimeAvailable)
-                @Html.EditorFor(o => o.DateTimeAvailable, new { @class = "form-control" })            
-            </div> 
+            <p>
+                <input type="date" name="date" id="date" value="@Model.date">
+                <input type="time" name="time" id="time" value="@Model.time">
+            </p> 
             <hr/>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary" value="Submit">Save</button>
-                <button type="submit" class="btn btn-primary">Edit</button>
-            </div>  
-        
+            </div>
     </div>  
     
     

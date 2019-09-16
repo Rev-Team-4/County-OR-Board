@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,40 +6,15 @@
     <title>@ViewData["Title"] - OrBoard.Client</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/darklybootstrap.css" />
-    <style>
-        .sidenav {
-            height: 100%; /* 100% Full-height */
-            width: 150px; /* 0 width - change this with JavaScript */
-            position: absolute; /* Stay in place */
-            z-index: 1; /* Stay on top */
-            top: 60; /* Stay at the top */
-            left: 0;
-            background-color: #111; /* Black*/
-            overflow-x: hidden; /* Disable horizontal scroll */
-            padding-top: 60px; /* Place content 60px from the top */
-            transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-        }
-    </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand">OrBoard</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" asp-controller="Cases" asp-action="Index">My Cases<span class="sr-only">(current)</span></a>
-                    </li>                   
-                </ul>
-                <a class="nav-link" asp-controller="Login" asp-action="Index">LogOut</a>                
-            </div>
+            <a class="navbar-brand" asp-controller="Login" asp-action="Index">OrBoard</a>
+            <a class="nav-link" asp-controller="Registration" asp-action="facility">Facility Registration</a>
+            <a class="nav-link" asp-controller="Registration" asp-action="provider">Provider Registration</a>                
         </nav>
     </header>
-
-    <nav class="sidenav flex-column bg-dark" style="position: absolute">
-        <a class="nav-link active" asp-controller="NewCases" asp-action="Index">Add New Case</a>
-    </nav>
-    
     <div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">

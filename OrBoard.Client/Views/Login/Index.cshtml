@@ -1,10 +1,10 @@
 @model OrBoard.Domain.Models.Login
 
 @{
-    Layout = "";
+    Layout = "_LoginLayout";
 }
 
-<div>
+<div class="text-center">
     <form asp-controller="Login" asp-action="Index" method="post">
         <p>
             <label>Login</label>
@@ -14,6 +14,6 @@
             <label>Password</label>
             <input type="password" asp-for="@Model.Password">
         </p>
-        <button type="input">Submit</button>
+        <button class="btn btn-primary" type="input">Submit</button>
     </form>
 </div>
