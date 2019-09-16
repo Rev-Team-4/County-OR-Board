@@ -25,15 +25,7 @@ namespace OrBoard.Tests
             //Assert 
         }
 
-        [Fact]
-        public void ViewRoomsActionShouldViewRooms()
-        {
-            //Arrange
-            
-            //Act
-            
-            //Assert 
-        }
+        
         [Fact]
         public void ViewHospitalsActionShouldViewHospitals()
         {
