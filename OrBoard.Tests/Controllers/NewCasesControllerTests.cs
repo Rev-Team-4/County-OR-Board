@@ -6,9 +6,13 @@ namespace OrBoard.Tests
     public class NewCasesControllerTests
     {
         [Fact]
-        public void Test1()
+        public void IndexActionShouldAddNewCase()
         {
-
+            //Arrange
+            
+            //Act
+            
+            //Assert 
         }
     }
 }

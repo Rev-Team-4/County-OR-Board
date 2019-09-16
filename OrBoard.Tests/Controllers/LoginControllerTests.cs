@@ -6,9 +6,13 @@ namespace OrBoard.Tests
     public class LoginControllerTests
     {
         [Fact]
-        public void Test1()
+        public void IndexActionShouldLogUseIn()
         {
-
+            //Arrange
+            
+            //Act
+            
+            //Assert 
         }
     }
 }

@@ -6,9 +6,23 @@ namespace OrBoard.Tests
     public class CasesControllerTests
     {
         [Fact]
-        public void Test1()
+        public void IndexActionShouldReturnCvm()
         {
+            //Arrange
+            
+            //Act
+            
+            //Assert 
+        }
 
+        [Fact]
+        public void EditCasesActionShouldEditCase()
+        {
+            //Arrange
+            
+            //Act
+            
+            //Assert 
         }
     }
 }

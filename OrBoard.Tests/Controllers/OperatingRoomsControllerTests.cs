@@ -6,9 +6,42 @@ namespace OrBoard.Tests
     public class OperatingRoomsControllerTests
     {
         [Fact]
-        public void Test1()
-        {
+        public void AddNewRoomActionShouldAddNewRoom()
+        {   
+            //Arrange
+            
+            //Act
+            
+            //Assert 
+        }
 
+        [Fact]
+        public void ViewRoomsActionShouldViewRooms()
+        {
+            //Arrange
+            
+            //Act
+            
+            //Assert 
+        }
+
+        [Fact]
+        public void ViewRoomsActionShouldViewRooms()
+        {
+            //Arrange
+            
+            //Act
+            
+            //Assert 
+        }
+        [Fact]
+        public void ViewHospitalsActionShouldViewHospitals()
+        {
+            //Arrange
+            
+            //Act
+            
+            //Assert 
         }
     }
 }

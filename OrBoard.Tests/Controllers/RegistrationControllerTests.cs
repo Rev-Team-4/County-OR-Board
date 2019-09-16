@@ -6,9 +6,23 @@ namespace OrBoard.Tests
     public class RegistrationControllerTests
     {
         [Fact]
-        public void Test1()
+        public void ProviderActionShouldAddNewProvider()
         {
+            //Arrange
+            
+            //Act
+            
+            //Assert   
+        }
 
+        [Fact]
+        public void FacilityActionShouldAddNewFacility()
+        {
+            //Arrange
+            
+            //Act
+            
+            //Assert
         }
     }
 }

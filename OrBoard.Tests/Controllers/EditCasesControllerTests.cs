@@ -6,9 +6,13 @@ namespace OrBoard.Tests
     public class EditCasesControllerTests
     {
         [Fact]
-        public void Test1()
+        public void IndexActionShouldEditCase()
         {
-
+            //Arrange
+            
+            //Act
+            
+            //Assert 
         }
     }
 }

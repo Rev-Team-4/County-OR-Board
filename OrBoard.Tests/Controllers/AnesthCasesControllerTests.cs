@@ -6,9 +6,23 @@ namespace OrBoard.Tests
     public class AnesthCasesControllerTests
     {
         [Fact]
-        public void Test1()
+        public void IndexActionShouldReturnAcvm()
         {
+            //Arrange
+            
+            //Act
+            
+            //Assert
+        }
 
+        [Fact]
+        public void SetStatusActionShouldWriteToDb()
+        {
+            //Arrange
+            
+            //Act
+            
+            //Assert
         }
     }
 }
