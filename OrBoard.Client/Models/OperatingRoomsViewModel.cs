@@ -18,13 +18,16 @@ namespace OrBoard.Client.Models
       public Procedure Procedure { get; set; }
       public IEnumerable<Procedure> Procedures { get; set; } 
 
-      OrDbContext _db = new OrDbContext();
+      OrBoardDbContext _db = new OrBoardDbContext();
 
       public OperatingRoomsViewModel()
         {
-            ProcedureList = new List<Procedure>();
-            AnesthetistList = new List<Anesthetist>();
-            NurseList = new List<Nurse>();
+            OpRooms = new List<OperatingRoom>();
+            Hospitals = new List<Hospital>();
+            Procedures = new List<Procedure>();
+            Hospital = new Hospital();
+            Procedure = new Procedure();
+            OperatingRoom = new OperatingRoom();
         }
 
 
