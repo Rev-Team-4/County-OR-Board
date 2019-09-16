@@ -2,7 +2,7 @@
 
 namespace OrBoard.Data.Migrations
 {
-    public partial class updateorroomtable2 : Migration
+    public partial class lastpull : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -10,8 +10,8 @@ using OrBoard.Data;
 namespace OrBoard.Data.Migrations
 {
     [DbContext(typeof(OrBoardDbContext))]
-    [Migration("20190915021837_updateproceduretable")]
-    partial class updateproceduretable
+    [Migration("20190916001632_lastpull")]
+    partial class lastpull
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -100,6 +100,9 @@ namespace OrBoard.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
+                    b.Property<string>("Fax")
+                        .IsRequired();
+
                     b.Property<int>("LicenseNumber");
 
                     b.Property<bool>("LicenseStatus");
@@ -121,6 +124,12 @@ namespace OrBoard.Data.Migrations
                     b.Property<string>("State")
                         .IsRequired()
                         .HasMaxLength(50);
+
+                    b.Property<string>("Telephone")
+                        .IsRequired();
+
+                    b.Property<string>("ZipCode")
+                        .IsRequired();
 
                     b.HasKey("HospitalId");
 
@@ -282,8 +291,7 @@ namespace OrBoard.Data.Migrations
 
                     b.Property<int>("AnesthetistId");
 
-                    b.Property<string>("AnesthetistStatus")
-                        .IsRequired();
+                    b.Property<string>("AnesthetistStatus");
 
                     b.Property<string>("EstimatedProcedureLength")
                         .IsRequired();
