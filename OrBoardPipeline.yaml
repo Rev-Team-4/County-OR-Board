@@ -61,8 +61,20 @@ stages:
         pool: 
           vmImage: 'ubuntu-16.04'
         steps: 
-          - script: | 
-              dotnet publish
+          - task: Docker@2
+            inputs:
+              command: 'login'
+              containerRegistry: 'docker'
+            displayName: 'docker login'
+          - script: |
+              docker image build --file Dockerfile --tag orboard .
+              docker image tag orboard uchan3/orboard
+              docker push uchan3/orboard
+          - task: Docker@2
+            inputs:
+              command: 'logout'
+              containerRegistry: 'docker'
+            displayName: 'docker login'
   
   - stage: 'deploy' 
     condition: succeeded() 
@@ -82,6 +94,6 @@ stages:
 trigger: 
   branches:
     include:
-      - master
+      - Urey
 
               

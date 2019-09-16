@@ -1,22 +1,15 @@
-#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
-#For more information, please see https://aka.ms/containercompat
-
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-nanoserver-1809 AS base
-WORKDIR /app
-EXPOSE 80
-
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2-nanoserver-1809 AS build
-WORKDIR /src
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS buildstage
+WORKDIR /aspnet
 COPY ["OrBoard.Client/OrBoard.Client.csproj", "OrBoard.Client/"]
-RUN dotnet restore "OrBoard.Client/OrBoard.Client.csproj"
+RUN dotnet restore OrBoard.Client/OrBoard.Client.csproj
 COPY . .
-WORKDIR "/src/OrBoard.Client"
-RUN dotnet build "OrBoard.Client.csproj" -c Release -o /app
+WORKDIR /aspnet/OrBoard.Client
+RUN dotnet build OrBoard.Client.csproj
 
-# FROM build AS publish
-# RUN dotnet publish "OrBoard.Client.csproj" -c Release -o /app
+FROM buildstage AS publishstage
+RUN dotnet publish OrBoard.Client.csproj --no-restore -c Release -o /app
 
-# FROM base AS final
-# WORKDIR /app
-# COPY --from=publish /app .
-# ENTRYPOINT ["dotnet", "OrBoard.Client.dll"]
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
+WORKDIR /deploy
+COPY --from=publishstage /app .
+CMD ["dotnet", "OrBoard.Client.dll"]

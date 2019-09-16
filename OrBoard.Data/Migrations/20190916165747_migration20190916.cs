@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OrBoard.Data.Migrations
 {
-    public partial class Migration20190914 : Migration
+    public partial class migration20190916 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,7 +30,7 @@ namespace OrBoard.Data.Migrations
                     OperatingRoomId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     HospitalId = table.Column<int>(nullable: false),
-                    HospitalName = table.Column<string>(nullable: false),
+                    OrName = table.Column<string>(nullable: false),
                     DateTimeAvailable = table.Column<DateTime>(nullable: false),
                     OpRoomStatus = table.Column<string>(nullable: false)
                 },
@@ -54,9 +54,9 @@ namespace OrBoard.Data.Migrations
                     City = table.Column<string>(maxLength: 50, nullable: false),
                     State = table.Column<string>(maxLength: 50, nullable: false),
                     Zip = table.Column<int>(nullable: false),
-                    LicenseNumber = table.Column<int>(maxLength: 10, nullable: false),
+                    LicenseNumber = table.Column<int>(nullable: false),
                     LicenseStatus = table.Column<bool>(nullable: false),
-                    NPINumber = table.Column<int>(maxLength: 10, nullable: false),
+                    NPINumber = table.Column<int>(nullable: false),
                     NPIStatus = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -88,7 +88,10 @@ namespace OrBoard.Data.Migrations
                     EINStatus = table.Column<bool>(nullable: false),
                     FacilityType = table.Column<string>(maxLength: 50, nullable: false),
                     City = table.Column<string>(maxLength: 50, nullable: false),
-                    State = table.Column<string>(maxLength: 50, nullable: false)
+                    State = table.Column<string>(maxLength: 50, nullable: false),
+                    Telephone = table.Column<string>(nullable: false),
+                    Fax = table.Column<string>(nullable: false),
+                    ZipCode = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -116,9 +119,9 @@ namespace OrBoard.Data.Migrations
                     City = table.Column<string>(maxLength: 50, nullable: false),
                     State = table.Column<string>(maxLength: 50, nullable: false),
                     Zip = table.Column<int>(nullable: false),
-                    LicenseNumber = table.Column<int>(maxLength: 10, nullable: false),
+                    LicenseNumber = table.Column<int>(nullable: false),
                     LicenseStatus = table.Column<bool>(nullable: false),
-                    NPINumber = table.Column<int>(maxLength: 10, nullable: false),
+                    NPINumber = table.Column<int>(nullable: false),
                     NPIStatus = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -176,9 +179,9 @@ namespace OrBoard.Data.Migrations
                     City = table.Column<string>(maxLength: 50, nullable: false),
                     State = table.Column<string>(maxLength: 50, nullable: false),
                     Zip = table.Column<int>(nullable: false),
-                    LicenseNumber = table.Column<int>(maxLength: 10, nullable: false),
+                    LicenseNumber = table.Column<int>(nullable: false),
                     LicenseStatus = table.Column<bool>(nullable: false),
-                    NPINumber = table.Column<int>(maxLength: 10, nullable: false),
+                    NPINumber = table.Column<int>(nullable: false),
                     NPIStatus = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -208,7 +211,8 @@ namespace OrBoard.Data.Migrations
                     Status = table.Column<string>(nullable: false),
                     EstimatedProcedureLength = table.Column<string>(nullable: false),
                     ActualStart = table.Column<DateTime>(nullable: false),
-                    ActualFinish = table.Column<DateTime>(nullable: false)
+                    ActualFinish = table.Column<DateTime>(nullable: false),
+                    AnesthetistStatus = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
