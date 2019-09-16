@@ -74,7 +74,7 @@ stages:
             inputs:
               command: 'logout'
               containerRegistry: 'docker'
-            displayName: 'docker login'
+            displayName: 'docker logout'
   
   - stage: 'deploy' 
     condition: succeeded() 
