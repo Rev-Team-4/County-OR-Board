@@ -11,12 +11,12 @@ namespace OrBoard.Client.Models
 {
     public class OperatingRoomsViewModel
     {
-      public IEnumerable<OperatingRoom> OpRooms { get; set; }
+      public List<OperatingRoom> OpRooms { get; set; }
       public Hospital Hospital { get; set; }
       public OperatingRoom OperatingRoom { get; set; }
-      public IEnumerable<Hospital> Hospitals { get; set; }
+      public List<Hospital> Hospitals { get; set; }
       public Procedure Procedure { get; set; }
-      public IEnumerable<Procedure> Procedures { get; set; } 
+      public List<Procedure> Procedures { get; set; } 
 
       OrBoardDbContext _db = new OrBoardDbContext();
 
@@ -30,7 +30,28 @@ namespace OrBoard.Client.Models
             OperatingRoom = new OperatingRoom();
         }
 
+        public void ReadFromDb()
+        {
+            foreach (var opRoomItem in _db.OperatingRooms.ToList())
+            {
+                OpRooms.Add(opRoomItem);
+            }
 
+            foreach (var hospitalItem in _db.Hospitals.ToList())
+            {
+                Hospitals.Add(hospitalItem);
+            }
+            foreach (var procedureItem in _db.Procedures.ToList())
+            {
+                Procedures.Add(procedureItem);
+            }
+
+        }
+
+        public void WriteToDb()
+        {
+             DateTime date = new DateTime();
+        }
       
     }
      
