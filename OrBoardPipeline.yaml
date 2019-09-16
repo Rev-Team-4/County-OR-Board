@@ -88,8 +88,11 @@ stages:
         pool: 
           vmImage: 'ubuntu-16.04'
         steps: 
-          - script: | 
-              echo 'deploy successful'
+          - task: AzureWebAppContainer@1
+            inputs:
+              azureSubscription: 'Azure subscription 1(41685a64-c080-4858-a663-06f43f898374)'
+              appName: 'OrBoardRevature'
+              containers: 'uchan3/orboard'
 
 trigger: 
   branches:
