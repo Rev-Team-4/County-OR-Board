@@ -1,0 +1,36 @@
+@model OrBoard.Domain.Models.OperatingRoom;
+
+
+<h4>Please Add a New Operating Room To OrBoard</h4>
+
+<fieldset>
+  <legend>Add Room:</legend>
+
+    @using (Html.BeginForm("AddNewRoom", "OperatingRooms"))
+    {
+        <div class="form-group">
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.HospitalName, "Hospital Name")
+            @Html.TextBoxFor(m => m.HospitalName, new { @class = "form-control"})
+            </div>
+            
+        </div>
+        <div class="form-group">
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.OrName, "Give the room a name")
+                @Html.TextBoxFor(m => m.OrName, new { @class = "form-control"})
+            </div>        
+        </div>        
+        <div class="form-group">
+            <div class="col-md-10">
+            @Html.LabelFor(m => m.DateTimeAvailable, "Date and Time Available:")
+            @Html.EditorFor(m => m.DateTimeAvailable, new { @class="form-control"}) 
+            </div>               
+        </div>
+        <hr/>
+        <div class="button">
+            <button type="submit" class="btn btn-primary">Save</button>      
+        </div>    
+
+    }
+</fieldset>

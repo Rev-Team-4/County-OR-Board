@@ -26,6 +26,22 @@ namespace OrBoard.Client.Controllers
             var hospitals =  _db.Hospitals.ToList();
             return View(hospitals);
         }
+
+        [HttpGet]
+        public IActionResult AddNewRoom()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddNewRoom(OperatingRoom operatingRoom )
+        {   
+             if(ModelState.IsValid)
+            {
+                _db.OperatingRooms.Add(operatingRoom);
+                _db.SaveChanges();
+            }           
+            return RedirectToAction("ViewRooms");
+        }
         
 
 
