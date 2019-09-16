@@ -13,6 +13,19 @@ namespace OrBoard.Client.Controllers
     public class OperatingRoomsController : Controller
     {
         OrBoardDbContext _db = new OrBoardDbContext();
+
+        [HttpGet]
+        public IActionResult ViewRooms()
+        {   
+            var operatingRooms =  _db.OperatingRooms.ToList();
+            return View(operatingRooms);
+        }
+        [HttpGet]
+        public IActionResult ViewHospitals()
+        {   
+            var hospitals =  _db.Hospitals.ToList();
+            return View(hospitals);
+        }
         
 
 
