@@ -1,9 +1,10 @@
-@model OrBoard.Domain.Models.Hospital
+@model OrBoard.Client.Models.HospitalRegisterViewModel
 
 <h1>Provider Registration</h1>
 <h2>Give us your details. Note that this is subject to administrator approval. </h2>
 
-<form asp-controller="Registration" asp-action="Facility" method="post">
+<form action="/Registration/Facility" method="post">
+
   <label>Facility Name</label></br>
   <input type="text" asp-for="@Model.Name"></br>
 
@@ -19,19 +20,25 @@
   <label>OR Manager Email</label></br>
   <input type="email" asp-for="@Model.ManagerEmail"></br>
 
+  <label>Telephone</label></br>
+  <input type="phone" asp-for="@Model.Telephone"></br>
+
+  <label>Fax</label></br>
+  <input type="phone" asp-for="@Model.Fax"></br>
+
   <label>License Number</label></br>
   <input type="number" asp-for="@Model.LicenseNumber"></br>
 
-  <label>License Status</label>
-  <input type="radio" asp-for="@Model.LicenseStatus" value="Active">Active License</br>
-  <input type="radio" asp-for="@Model.LicenseStatus" value="Inactive">Inactive License</br>
+  <label>License Status</label></br>
+  <input type="radio" asp-for="@Model.LicenseStatus" value="true">Active License</br>
+  <input type="radio" asp-for="@Model.LicenseStatus" value="false">Inactive License</br>
 
-  <label>EIN Number</label>
+  <label>EIN Number</label></br>
   <input type="number" asp-for="@Model.EINNumber"></br>
 
   <label>EIN Status</label>
-  <input type="radio" asp-for="@Model.EINStatus" value="Active">Active License</br>
-  <input type="radio" asp-for="@Model.EINStatus" value="Inactive">Inactive License</br>
+  <input type="radio" asp-for="@Model.EINStatus" value="true">Active License</br>
+  <input type="radio" asp-for="@Model.EINStatus" value="false">Inactive License</br>
 
   <label>Facility Type</label>
   <input type="text" asp-for="@Model.FacilityType"></br>
@@ -41,6 +48,20 @@
 
   <label>State</label>
   <input type="text" asp-for="@Model.State"></br>
+
+  <label>Zip Code</label>
+  <input type="text" asp-for="@Model.ZipCode"></br>
+
+  <h3>Now let's create a login</h3>
+  
+  <label>User Name</label>
+  <input type="string" asp-for="@Model.UserName">
+  
+  <label>Login Password</label>
+  <input type="password" asp-for="@Model.Password">
+
+  <label>Creation Date</label>
+  <input type="date" asp-for="@Model.CreationDateTime">
 
   <button type="submit">Submit Information</button>
 </form>

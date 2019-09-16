@@ -9,7 +9,7 @@ namespace OrBoard.Client.Controllers
 
   public class RegistrationController : Controller
   {
-    public OrBoardDbContext _db = new OrBoardDbContext();
+    private OrBoardDbContext _db = new OrBoardDbContext();
     
     [HttpGet] //GET is required. 
     public IActionResult Provider()
@@ -18,31 +18,38 @@ namespace OrBoard.Client.Controllers
     }
 
     [HttpPost] //Then, once GET is done, 
-    public IActionResult Provider(RegistrationViewModel Register)
+    public IActionResult Provider(ProviderRegisterViewModel Register)
     {
-      if(ModelState.IsValid) //Simple NurseID 
+      if(ModelState.IsValid) 
       {
-        if(Register.Specialty=="Nurse")
-        {
-          Nurse newNurse  = Register;
-        _db.Nurses.Add(newNurse);
-        _db.SaveChanges();
-        }
-        else if(Register.Specialty=="Anesthetist")
-        {
-          Anesthetist newAnesthetist = Register;
-          _db.Anesthetists.Add(newAnesthetist);
-          _db.SaveChanges();
-        }
-        else if(Register.Specialty=="Surgeon")
-        {
-          Surgeon newSurgeon = Register;
-          _db.Surgeons.Add(newSurgeon);
-          _db.SaveChanges();
-        }
-        return RedirectToAction("Provider");
+        Login newuser = Register; //Every provider must have login regardless of specialty.
+        _db.Logins.Add(newuser);
+
+          if(Register.Specialty=="Nurse")
+          {
+            Nurse newNurse = Register;
+            newNurse.LoginId = newuser.LoginId;
+            _db.Nurses.Add(newNurse);
+            //_db.SaveChanges();
+          }
+          else if(Register.Specialty=="Anesthetist")
+          {
+            Anesthetist newAnesthetist = Register;
+            newAnesthetist.LoginId = newuser.LoginId;
+            _db.Anesthetists.Add(newAnesthetist);
+            //_db.SaveChanges();
+          }
+          else if(Register.Specialty=="Surgeon")
+          {
+            Surgeon newSurgeon = Register;
+            newSurgeon.LoginId = newuser.LoginId;
+            _db.Surgeons.Add(newSurgeon);
+            //_db.SaveChanges();
+          }
+        _db.SaveChanges();  
+        //return RedirectToAction("Provider");
       }
-      return RedirectToAction("Provider");
+      return RedirectToAction("Index", "Login");
     }
   
     [HttpGet]
@@ -52,15 +59,20 @@ namespace OrBoard.Client.Controllers
     }
 
      [HttpPost]
-     public IActionResult Facility(Hospital newHospital)
+     public IActionResult Facility(HospitalRegisterViewModel hospitalRegister)
      {
        if(ModelState.IsValid)
        {
+        //Add the user information.
+        Login newUser = hospitalRegister;
+        _db.Logins.Add(newUser);
+
+        Hospital newHospital = hospitalRegister;
+        newHospital.LoginId = newUser.LoginId;
          _db.Hospitals.Add(newHospital);
          _db.SaveChanges();
-         return RedirectToAction("Index", "Login");
        }
-       return RedirectToAction("Facility");
+       return RedirectToAction("Index", "Login");
      }
     
   }

@@ -1,8 +1,9 @@
-@model OrBoard.Client.Models.RegistrationViewModel
+@model OrBoard.Client.Models.ProviderRegisterViewModel
+
 <h1>Provider Registration</h1>
 <h2>Give us your details. Note that this is subject to administrator approval. </h2>
 
-<form asp-action="/Registration/Index" method="post">
+<form asp-action="/Registration/Provider" method="post">
 
   <label>First Name</label>
   <input type="text" asp-for="@Model.FirstName"></br>
@@ -12,6 +13,9 @@
 
   <label>Email</label>
   <input type="text" asp-for="@Model.Email"></br>
+
+  <label>Phone</label>
+  <input type="text" asp-for="@Model.Phone"></br>
 
   <label>Street Address</label>
   <input type="text" asp-for="@Model.StreetAddress"></br>
@@ -34,15 +38,27 @@
   <input type="number" asp-for="@Model.LicenseNumber"></br>
 
   <label>License Status</label>
-  <input type="radio" asp-for="@Model.LicenseStatus" value="Active">Active License</br>
-  <input type="radio" asp-for="@Model.LicenseStatus" value="Inactive">Inactive License</br>
+  <input type="radio" asp-for="@Model.LicenseStatus" value="true">Active License</br>
+  <input type="radio" asp-for="@Model.LicenseStatus" value="false">Inactive License</br>
 
    <label>License Number</label>
   <input type="number" asp-for="@Model.NPINumber">
 
   <label>License Status</label>
-  <input type="radio" asp-for="@Model.NPIStatus" value="Active">Active License</br>
-  <input type="radio" asp-for="@Model.NPIStatus" value="Inactive">Inactive License</br> 
+  <input type="radio" asp-for="@Model.NPIStatus" value="true">Active License</br>
+  <input type="radio" asp-for="@Model.NPIStatus" value="false">Inactive License</br> 
+  
+  <h3>Now let's create a login</h3>
+  
+  <label>User Name</label>
+  <input type="string" asp-for="@Model.UserName">
+  
+  <label>Login Password</label>
+  <input type="password" asp-for="@Model.Password">
 
-<input type="submit">Submit
+  <label>Creation Date</label>
+  <input type="date" asp-for="@Model.CreationDateTime">
+
+  <button type="submit">Submit Information</button>
+ 
 </form>
