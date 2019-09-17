@@ -1,4 +1,5 @@
 using System;
+using OrBoard.Client.Controllers;
 using Xunit;
 
 namespace OrBoard.Tests
@@ -9,20 +10,22 @@ namespace OrBoard.Tests
         public void AddNewRoomActionShouldAddNewRoom()
         {   
             //Arrange
-            
+            var ORRoom = new OperatingRoomsController();
             //Act
-            
+            var NewRoom = ORRoom.AddNewRoom();
             //Assert 
+            Assert.NotNull(NewRoom);
         }
 
         [Fact]
         public void ViewRoomsActionShouldViewRooms()
         {
             //Arrange
-            
+            var ORRoom = new OperatingRoomsController();
             //Act
-            
+            var ViewRoom = ORRoom.ViewRooms();
             //Assert 
+            Assert.NotNull(ViewRoom);
         }
 
         
@@ -30,10 +33,11 @@ namespace OrBoard.Tests
         public void ViewHospitalsActionShouldViewHospitals()
         {
             //Arrange
-            
+            var ORRoom = new OperatingRoomsController();
             //Act
-            
+            var ViewHospital = ORRoom.ViewHospitals();
             //Assert 
+            Assert.NotNull(ViewHospital);
         }
     }
 }

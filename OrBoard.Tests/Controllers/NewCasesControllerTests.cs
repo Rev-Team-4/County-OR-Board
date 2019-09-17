@@ -1,4 +1,5 @@
 using System;
+using OrBoard.Client.Controllers;
 using Xunit;
 
 namespace OrBoard.Tests
@@ -9,10 +10,11 @@ namespace OrBoard.Tests
         public void IndexActionShouldAddNewCase()
         {
             //Arrange
-            
+            var NewCase = new NewCasesController();
             //Act
-            
+            var caseadd = NewCase.Index();
             //Assert 
+            Assert.NotNull(caseadd);
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using OrBoard.Client.Controllers;
 using Xunit;
 
 namespace OrBoard.Tests
@@ -9,10 +10,11 @@ namespace OrBoard.Tests
         public void IndexActionShouldLogUseIn()
         {
             //Arrange
-            
+            var Login = new LoginController();
             //Act
-            
+            var NewLogin = Login.Index();
             //Assert 
+            Assert.NotNull(NewLogin);
         }
     }
 }
