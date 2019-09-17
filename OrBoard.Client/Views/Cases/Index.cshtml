@@ -36,7 +36,18 @@
                         {
                             if(item.AnesthetistId == item2.AnesthetistId)
                             {
-                                @item2.FirstName@:&nbsp;@item2.LastName
+                                if(item.AnesthetistStatus == "Available")
+                                {
+                                    @:<p style="color: green;">
+                                        @item2.FirstName@:&nbsp;@item2.LastName
+                                    @:</p>
+                                }
+                                else
+                                {
+                                    @:<p style="color: red;">
+                                        @item2.FirstName@:&nbsp;@item2.LastName
+                                    @:</p>
+                                }
                             }
                         }
                     </td>
