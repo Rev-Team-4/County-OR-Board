@@ -4,89 +4,118 @@
     Layout = "_LoginLayout";
 }
 
+
+ 
 <div style="position: relative; left: 40px;">
     <h1>Provider Registration</h1>
     <h2>Give us your details. Note that this is subject to administrator approval. </h2>  
 
     <form asp-action="/Registration/Provider" method="post">
-      <p>
+      <div class="form-group">
+        <div class="col-md-8">
           <label>First Name</label>
           <input type="text" asp-for="@Model.FirstName"></br>
-      </p>
+        </div>
+      </div>
     
-      <p>
+      <div class="form-group">
+        <div class="col-md-8">
           <label>Last Name</label>
           <input type="text" asp-for="@Model.LastName"></br>
-      </p>
+        </div>
+      </div>
     
-      <p>
+      <div class="form-group">
+        <div class="col-md-8">
           <label>Email</label>
           <input type="text" asp-for="@Model.Email"></br>
-      </p>
+        </div>
+      </div>
     
-      <p>
+      <div class="form-group">
+        <div class="col-md-8">
           <label>Phone</label>
           <input type="text" asp-for="@Model.Phone"></br>
-      </p>
+        </div>
+      </div>
     
-     <p>
+     <div class="form-group">
+       <div class="col-md-8">
           <label>Street Address</label>
           <input type="text" asp-for="@Model.StreetAddress"></br>
-     </p>
+       </div>
+     </div>
     
-      <p>
+      <div class="form-group">
+        <div class="col-md-8">
           <label>City</label>
           <input type="text" asp-for="@Model.City"></br>
-      </p>
+        </div>
+      </div>
     
-      <p>
+      <div class="form-group">
+        <div class="col-md-8">
           <label>State</label>
           <input type="text" asp-for="@Model.State"></br>
-      </p>
+        </div>
+      </div>
     
-      <p>
+      <div class="form-group">
+        <div class="col-md-8">
           <label>Zip Code</label>
           <input type="number" asp-for="@Model.Zip"></br>
-      </p>
+        </div>
+      </div>
     
-      <p>
+      <div class="form-group">
+        <div class="col-md-8">
           <label>Specialty</label></br>
           <input type="radio" asp-for="@Model.Specialty" value="Anesthetist">Anesthetist</br>
           <input type="radio" asp-for="@Model.Specialty" value="Nurse">Nurse</br>
           <input type="radio" asp-for="@Model.Specialty" value="Surgeon">Surgeon</br>
-      </p>
+        </div>
+      </div>
     
-      <p>
+      <div class="form-group">
+        <div class="col-md-8">
           <label>License Number</label>
           <input type="number" asp-for="@Model.LicenseNumber"></br>
-      </p>
+      </div>
+      </div>
     
-     <p>
+     <div class="form-group">
+       <div class="col-md-8">
           <label>License Status</label></br>
           <input type="radio" asp-for="@Model.LicenseStatus" value="true">Active License</br>
           <input type="radio" asp-for="@Model.LicenseStatus" value="false">Inactive License</br>
-     </p>
+       </div>
+     </div>
     
-     <p>
-          <label>License Number</label>
+     <div class="form-group">
+       <div class="col-md-8">
+          <label>NPI Number</label>
           <input type="number" asp-for="@Model.NPINumber">
-     </p>
+        </div>  
+     </div>
     
-      <p>
-          <label>License Status</label></br>
+      <div class="form-group">
+        <div class="col-md-8">
+          <label>NPI Status</label></br>
           <input type="radio" asp-for="@Model.NPIStatus" value="true">Active License</br>
-          <input type="radio" asp-for="@Model.NPIStatus" value="false">Inactive License</br> 
-      </p>
+          <input type="radio" asp-for="@Model.NPIStatus" value="false">Inactive License</br>
+        </div> 
+      </div>
       
-      <h3>Now let's create a login</h3>
+      <h5>Now let's create a login</h5>
       
-      <p>
+      <div class="form-group">
+        <div class="col-md-8">
           <label>User Name</label>
           <input type="string" asp-for="@Model.UserName"></br>
-          
           <label>Login Password</label>
           <input type="password" asp-for="@Model.Password">
-      </p>
+        </div>  
+      </div>
     
       <button type="submit">Submit Information</button>
      
