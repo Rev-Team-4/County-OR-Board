@@ -153,46 +153,46 @@
       "OrBoard.Client.Models.AnesthCasesViewModel": {
         "System.Collections.Generic.List`1<OrBoard.Domain.Models.Procedure> OrBoard.Client.Models.AnesthCasesViewModel::get_ProcedureList()": {
           "Lines": {
-            "11": 0
+            "11": 2
           },
           "Branches": []
         },
         "System.Collections.Generic.List`1<OrBoard.Domain.Models.Anesthetist> OrBoard.Client.Models.AnesthCasesViewModel::get_AnesthetistList()": {
           "Lines": {
-            "12": 0
+            "12": 2
           },
           "Branches": []
         },
         "System.Collections.Generic.List`1<OrBoard.Domain.Models.Nurse> OrBoard.Client.Models.AnesthCasesViewModel::get_NurseList()": {
           "Lines": {
-            "13": 0
+            "13": 2
           },
           "Branches": []
         },
         "System.Int32 OrBoard.Client.Models.AnesthCasesViewModel::get_SiD()": {
           "Lines": {
-            "14": 0
+            "14": 1
           },
           "Branches": []
         },
         "System.Void OrBoard.Client.Models.AnesthCasesViewModel::Read()": {
           "Lines": {
-            "27": 0,
-            "28": 0,
-            "29": 0,
-            "30": 0,
+            "27": 1,
+            "28": 5,
+            "29": 1,
+            "30": 1,
             "31": 0,
             "32": 0,
             "33": 0,
-            "34": 0,
-            "36": 0,
-            "37": 0,
-            "38": 0,
+            "34": 1,
+            "36": 5,
+            "37": 1,
+            "38": 1,
             "39": 0,
             "40": 0,
             "41": 0,
-            "42": 0,
-            "43": 0
+            "42": 1,
+            "43": 1
           },
           "Branches": [
             {
@@ -201,7 +201,7 @@
               "EndOffset": 26,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 30,
@@ -217,7 +217,7 @@
               "EndOffset": 67,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 28,
@@ -225,7 +225,7 @@
               "EndOffset": 77,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 36,
@@ -233,7 +233,7 @@
               "EndOffset": 114,
               "Path": 1,
               "Ordinal": 7,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 38,
@@ -249,7 +249,7 @@
               "EndOffset": 160,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 36,
@@ -257,20 +257,20 @@
               "EndOffset": 169,
               "Path": 0,
               "Ordinal": 6,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         },
         "System.Void OrBoard.Client.Models.AnesthCasesViewModel::Write(System.Int32,System.String)": {
           "Lines": {
-            "46": 0,
-            "47": 0,
-            "48": 0,
+            "46": 1,
+            "47": 1,
+            "48": 1,
             "49": 0,
             "50": 0,
             "51": 0,
             "52": 0,
-            "53": 0
+            "53": 1
           },
           "Branches": [
             {
@@ -287,19 +287,19 @@
               "EndOffset": 154,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         },
         "System.Void OrBoard.Client.Models.AnesthCasesViewModel::.ctor()": {
           "Lines": {
-            "17": 0,
-            "19": 0,
-            "20": 0,
-            "21": 0,
-            "22": 0,
-            "23": 0,
-            "24": 0
+            "17": 2,
+            "19": 2,
+            "20": 2,
+            "21": 2,
+            "22": 2,
+            "23": 2,
+            "24": 2
           },
           "Branches": []
         }
@@ -309,54 +309,54 @@
       "OrBoard.Client.Models.CasesViewModel": {
         "System.Collections.Generic.List`1<OrBoard.Domain.Models.Procedure> OrBoard.Client.Models.CasesViewModel::get_ProcedureList()": {
           "Lines": {
-            "11": 0
+            "11": 2
           },
           "Branches": []
         },
         "System.Collections.Generic.List`1<OrBoard.Domain.Models.Anesthetist> OrBoard.Client.Models.CasesViewModel::get_AnesthetistList()": {
           "Lines": {
-            "12": 0
+            "12": 3
           },
           "Branches": []
         },
         "System.Collections.Generic.List`1<OrBoard.Domain.Models.Nurse> OrBoard.Client.Models.CasesViewModel::get_NurseList()": {
           "Lines": {
-            "13": 0
+            "13": 2
           },
           "Branches": []
         },
         "System.Int32 OrBoard.Client.Models.CasesViewModel::get_SiD()": {
           "Lines": {
-            "14": 0
+            "14": 1
           },
           "Branches": []
         },
         "System.Void OrBoard.Client.Models.CasesViewModel::Read()": {
           "Lines": {
-            "26": 0,
-            "27": 0,
-            "28": 0,
-            "29": 0,
+            "26": 1,
+            "27": 5,
+            "28": 1,
+            "29": 1,
             "30": 0,
             "31": 0,
             "32": 0,
-            "33": 0,
-            "35": 0,
-            "36": 0,
-            "37": 0,
+            "33": 1,
+            "35": 5,
+            "36": 1,
+            "37": 1,
             "38": 0,
             "39": 0,
             "40": 0,
-            "41": 0,
-            "43": 0,
-            "44": 0,
-            "45": 0,
-            "46": 0,
-            "48": 0,
+            "41": 1,
+            "43": 5,
+            "44": 1,
+            "45": 1,
+            "46": 1,
+            "48": 3,
             "49": 0,
             "50": 0,
             "51": 0,
-            "52": 0
+            "52": 1
           },
           "Branches": [
             {
@@ -365,7 +365,7 @@
               "EndOffset": 26,
               "Path": 1,
               "Ordinal": 3,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 29,
@@ -381,7 +381,7 @@
               "EndOffset": 67,
               "Path": 1,
               "Ordinal": 1,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 27,
@@ -389,7 +389,7 @@
               "EndOffset": 77,
               "Path": 0,
               "Ordinal": 2,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 35,
@@ -397,7 +397,7 @@
               "EndOffset": 114,
               "Path": 1,
               "Ordinal": 7,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 37,
@@ -413,7 +413,7 @@
               "EndOffset": 160,
               "Path": 1,
               "Ordinal": 5,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 35,
@@ -421,7 +421,7 @@
               "EndOffset": 169,
               "Path": 0,
               "Ordinal": 6,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 43,
@@ -429,7 +429,7 @@
               "EndOffset": 203,
               "Path": 1,
               "Ordinal": 9,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 43,
@@ -437,7 +437,7 @@
               "EndOffset": 237,
               "Path": 0,
               "Ordinal": 8,
-              "Hits": 0
+              "Hits": 1
             },
             {
               "Line": 48,
@@ -453,19 +453,19 @@
               "EndOffset": 307,
               "Path": 0,
               "Ordinal": 10,
-              "Hits": 0
+              "Hits": 1
             }
           ]
         },
         "System.Void OrBoard.Client.Models.CasesViewModel::.ctor()": {
           "Lines": {
-            "16": 0,
-            "18": 0,
-            "19": 0,
-            "20": 0,
-            "21": 0,
-            "22": 0,
-            "23": 0
+            "16": 2,
+            "18": 2,
+            "19": 2,
+            "20": 2,
+            "21": 2,
+            "22": 2,
+            "23": 2
           },
           "Branches": []
         }
@@ -1802,25 +1802,25 @@
       "OrBoard.Client.Controllers.AnesthCasesController": {
         "Microsoft.AspNetCore.Mvc.IActionResult OrBoard.Client.Controllers.AnesthCasesController::Index()": {
           "Lines": {
-            "11": 0,
-            "12": 0,
-            "13": 0,
-            "14": 0
+            "11": 1,
+            "12": 1,
+            "13": 1,
+            "14": 1
           },
           "Branches": []
         },
         "Microsoft.AspNetCore.Mvc.IActionResult OrBoard.Client.Controllers.AnesthCasesController::SetStatus(System.Int32,System.String)": {
           "Lines": {
-            "17": 0,
-            "18": 0,
-            "19": 0,
-            "20": 0
+            "17": 1,
+            "18": 1,
+            "19": 1,
+            "20": 1
           },
           "Branches": []
         },
         "System.Void OrBoard.Client.Controllers.AnesthCasesController::.ctor()": {
           "Lines": {
-            "8": 0
+            "8": 2
           },
           "Branches": []
         }
@@ -1830,24 +1830,24 @@
       "OrBoard.Client.Controllers.CasesController": {
         "Microsoft.AspNetCore.Mvc.IActionResult OrBoard.Client.Controllers.CasesController::Index()": {
           "Lines": {
-            "18": 0,
-            "19": 0,
-            "20": 0,
-            "21": 0
+            "18": 1,
+            "19": 1,
+            "20": 1,
+            "21": 1
           },
           "Branches": []
         },
         "Microsoft.AspNetCore.Mvc.IActionResult OrBoard.Client.Controllers.CasesController::EditCases(System.Int32)": {
           "Lines": {
-            "24": 0,
-            "25": 0,
-            "26": 0
+            "24": 1,
+            "25": 1,
+            "26": 1
           },
           "Branches": []
         },
         "System.Void OrBoard.Client.Controllers.CasesController::.ctor()": {
           "Lines": {
-            "15": 0
+            "15": 2
           },
           "Branches": []
         }
@@ -9462,57 +9462,57 @@
       "OrBoard.Data.OrBoardDbContext": {
         "Microsoft.EntityFrameworkCore.DbSet`1<OrBoard.Domain.Models.Anesthetist> OrBoard.Data.OrBoardDbContext::get_Anesthetists()": {
           "Lines": {
-            "10": 15
+            "10": 21
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<OrBoard.Domain.Models.Hospital> OrBoard.Data.OrBoardDbContext::get_Hospitals()": {
           "Lines": {
-            "11": 18
+            "11": 22
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<OrBoard.Domain.Models.Login> OrBoard.Data.OrBoardDbContext::get_Logins()": {
           "Lines": {
-            "12": 14
+            "12": 18
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<OrBoard.Domain.Models.Nurse> OrBoard.Data.OrBoardDbContext::get_Nurses()": {
           "Lines": {
-            "13": 13
+            "13": 18
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<OrBoard.Domain.Models.OperatingRoom> OrBoard.Data.OrBoardDbContext::get_OperatingRooms()": {
           "Lines": {
-            "14": 16
+            "14": 20
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<OrBoard.Domain.Models.Patient> OrBoard.Data.OrBoardDbContext::get_Patients()": {
           "Lines": {
-            "15": 13
+            "15": 17
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<OrBoard.Domain.Models.Procedure> OrBoard.Data.OrBoardDbContext::get_Procedures()": {
           "Lines": {
-            "16": 15
+            "16": 22
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<OrBoard.Domain.Models.Surgeon> OrBoard.Data.OrBoardDbContext::get_Surgeons()": {
           "Lines": {
-            "17": 14
+            "17": 19
           },
           "Branches": []
         },
         "System.Void OrBoard.Data.OrBoardDbContext::OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)": {
           "Lines": {
-            "31": 5,
-            "32": 5,
-            "33": 5
+            "31": 8,
+            "32": 8,
+            "33": 8
           },
           "Branches": []
         },
@@ -9563,9 +9563,9 @@
         },
         "System.Void OrBoard.Data.OrBoardDbContext::.ctor()": {
           "Lines": {
-            "20": 13,
-            "21": 13,
-            "23": 13
+            "20": 17,
+            "21": 17,
+            "23": 17
           },
           "Branches": []
         },
@@ -12136,7 +12136,7 @@
       "OrBoard.Domain.Models.Anesthetist": {
         "System.Int32 OrBoard.Domain.Models.Anesthetist::get_AnesthetistId()": {
           "Lines": {
-            "11": 6
+            "11": 13
           },
           "Branches": []
         }
@@ -12437,109 +12437,109 @@
       "OrBoard.Domain.Models.Procedure": {
         "System.Int32 OrBoard.Domain.Models.Procedure::get_ProcedureId()": {
           "Lines": {
-            "11": 7
+            "11": 13
           },
           "Branches": []
         },
         "System.Int32 OrBoard.Domain.Models.Procedure::get_SurgeonId()": {
           "Lines": {
-            "14": 5
+            "14": 11
           },
           "Branches": []
         },
         "OrBoard.Domain.Models.Surgeon OrBoard.Domain.Models.Procedure::get_Surgeon()": {
           "Lines": {
-            "15": 4
+            "15": 8
           },
           "Branches": []
         },
         "System.Int32 OrBoard.Domain.Models.Procedure::get_AnesthetistId()": {
           "Lines": {
-            "18": 5
+            "18": 12
           },
           "Branches": []
         },
         "OrBoard.Domain.Models.Anesthetist OrBoard.Domain.Models.Procedure::get_Anesthetist()": {
           "Lines": {
-            "19": 4
+            "19": 10
           },
           "Branches": []
         },
         "System.Int32 OrBoard.Domain.Models.Procedure::get_OperatingRoomId()": {
           "Lines": {
-            "22": 6
+            "22": 10
           },
           "Branches": []
         },
         "OrBoard.Domain.Models.OperatingRoom OrBoard.Domain.Models.Procedure::get_OperatingRoom()": {
           "Lines": {
-            "23": 6
+            "23": 8
           },
           "Branches": []
         },
         "System.Int32 OrBoard.Domain.Models.Procedure::get_HospitalId()": {
           "Lines": {
-            "26": 6
+            "26": 10
           },
           "Branches": []
         },
         "OrBoard.Domain.Models.Hospital OrBoard.Domain.Models.Procedure::get_Hospital()": {
           "Lines": {
-            "27": 6
+            "27": 8
           },
           "Branches": []
         },
         "System.Nullable`1<System.Int32> OrBoard.Domain.Models.Procedure::get_NurseId()": {
           "Lines": {
-            "30": 4
+            "30": 8
           },
           "Branches": []
         },
         "OrBoard.Domain.Models.Nurse OrBoard.Domain.Models.Procedure::get_Nurse()": {
           "Lines": {
-            "31": 2
+            "31": 4
           },
           "Branches": []
         },
         "System.DateTime OrBoard.Domain.Models.Procedure::get_ScheduledDateTime()": {
           "Lines": {
-            "34": 2
+            "34": 4
           },
           "Branches": []
         },
         "System.String OrBoard.Domain.Models.Procedure::get_ProcedureName()": {
           "Lines": {
-            "37": 4
+            "37": 8
           },
           "Branches": []
         },
         "System.String OrBoard.Domain.Models.Procedure::get_Status()": {
           "Lines": {
-            "40": 4
+            "40": 8
           },
           "Branches": []
         },
         "System.String OrBoard.Domain.Models.Procedure::get_EstimatedProcedureLength()": {
           "Lines": {
-            "44": 4
+            "44": 8
           },
           "Branches": []
         },
         "System.DateTime OrBoard.Domain.Models.Procedure::get_ActualStart()": {
           "Lines": {
-            "47": 2
+            "47": 4
           },
           "Branches": []
         },
         "System.DateTime OrBoard.Domain.Models.Procedure::get_ActualFinish()": {
           "Lines": {
-            "50": 2
+            "50": 4
           },
           "Branches": []
         },
         "System.String OrBoard.Domain.Models.Procedure::get_AnesthetistStatus()": {
           "Lines": {
-            "52": 4
+            "52": 8
           },
           "Branches": []
         },
@@ -12561,7 +12561,7 @@
       "OrBoard.Domain.Models.Surgeon": {
         "System.Int32 OrBoard.Domain.Models.Surgeon::get_SurgeonId()": {
           "Lines": {
-            "10": 3
+            "10": 6
           },
           "Branches": []
         }
@@ -12571,25 +12571,25 @@
       "OrBoard.Domain.Abstracts.ADoctor": {
         "System.Int32 OrBoard.Domain.Abstracts.ADoctor::get_LicenseNumber()": {
           "Lines": {
-            "9": 3
+            "9": 6
           },
           "Branches": []
         },
         "System.Boolean OrBoard.Domain.Abstracts.ADoctor::get_LicenseStatus()": {
           "Lines": {
-            "12": 3
+            "12": 6
           },
           "Branches": []
         },
         "System.Int32 OrBoard.Domain.Abstracts.ADoctor::get_NPINumber()": {
           "Lines": {
-            "16": 3
+            "16": 6
           },
           "Branches": []
         },
         "System.Boolean OrBoard.Domain.Abstracts.ADoctor::get_NPIStatus()": {
           "Lines": {
-            "19": 3
+            "19": 6
           },
           "Branches": []
         }
@@ -12599,61 +12599,61 @@
       "OrBoard.Domain.Abstracts.AUser": {
         "System.Int32 OrBoard.Domain.Abstracts.AUser::get_LoginId()": {
           "Lines": {
-            "10": 7
+            "10": 15
           },
           "Branches": []
         },
         "OrBoard.Domain.Models.Login OrBoard.Domain.Abstracts.AUser::get_Login()": {
           "Lines": {
-            "11": 3
+            "11": 6
           },
           "Branches": []
         },
         "System.String OrBoard.Domain.Abstracts.AUser::get_FirstName()": {
           "Lines": {
-            "15": 6
+            "15": 12
           },
           "Branches": []
         },
         "System.String OrBoard.Domain.Abstracts.AUser::get_LastName()": {
           "Lines": {
-            "19": 6
+            "19": 12
           },
           "Branches": []
         },
         "System.String OrBoard.Domain.Abstracts.AUser::get_Phone()": {
           "Lines": {
-            "23": 6
+            "23": 12
           },
           "Branches": []
         },
         "System.String OrBoard.Domain.Abstracts.AUser::get_Email()": {
           "Lines": {
-            "27": 6
+            "27": 12
           },
           "Branches": []
         },
         "System.String OrBoard.Domain.Abstracts.AUser::get_StreetAddress()": {
           "Lines": {
-            "31": 6
+            "31": 12
           },
           "Branches": []
         },
         "System.String OrBoard.Domain.Abstracts.AUser::get_City()": {
           "Lines": {
-            "35": 6
+            "35": 12
           },
           "Branches": []
         },
         "System.String OrBoard.Domain.Abstracts.AUser::get_State()": {
           "Lines": {
-            "39": 6
+            "39": 12
           },
           "Branches": []
         },
         "System.Int32 OrBoard.Domain.Abstracts.AUser::get_Zip()": {
           "Lines": {
-            "43": 3
+            "43": 6
           },
           "Branches": []
         }
