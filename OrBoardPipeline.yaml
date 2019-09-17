@@ -48,7 +48,7 @@ stages:
             inputs:
               codeCoverageTool: cobertura
               summaryFileLocation: '**/coverage.cobertura.xml'
-
+#Update dockerfile
   - stage: 'pack' 
     condition: succeeded() 
     dependsOn: 
