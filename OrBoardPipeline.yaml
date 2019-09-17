@@ -91,9 +91,9 @@ stages:
         steps: 
           - task: AzureWebAppContainer@1
             inputs:
-              azureSubscription: 'Azure subscription 1(41685a64-c080-4858-a663-06f43f898374)'
+              azureSubscription: 'Revature(41685a64-c080-4858-a663-06f43f898374)'
               appName: 'RevatureOrBoard'
-              containers: 'uchan3/orboard'    
+              containers: 'uchan3/orboard'  
 
 trigger: 
   branches:
