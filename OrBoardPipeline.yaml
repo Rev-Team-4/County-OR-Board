@@ -36,7 +36,7 @@ stages:
               dotnet tool install --global dotnet-sonarscanner
               dotnet sonarscanner begin /k:"Rev-Team-4_ORBoard" /o:"uchan3" /d:sonar.login="9493587ec046e5d91f8e6feb78f7419dde70ce99" /d:sonar.host.url="https://sonarcloud.io"
               dotnet build
-              dotnet test --logger trx /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=\"cobertura,opencover\" /p:Exclude=[xunit*]*
+              dotnet test --logger trx -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=\"cobertura,opencover\" -p:Exclude=[xunit*]*
               dotnet sonarscanner end /d:sonar.login="9493587ec046e5d91f8e6feb78f7419dde70ce99" 
           - task: PublishTestResults@2
             displayName: 'publish result::unit-test'
