@@ -14,10 +14,10 @@ namespace OrBoard.Client.Controllers
         public IActionResult Index()
         {
             Login = new Login();
-            foreach (var item in _db.Logins.ToList())
-            {
-                Login.LoginList.Add(item);
-            }
+            // foreach (var item in _db.Logins.ToList())
+            // {
+            //     Login.LoginList.Add(item);
+            // }
             return View();
         }
 
