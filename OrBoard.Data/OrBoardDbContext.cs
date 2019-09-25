@@ -29,7 +29,7 @@ namespace OrBoard.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            builder.UseSqlServer("server=localhost;initial catalog=OrBoardDB;user id=sa;password=Password12345;");
+            builder.UseSqlServer("Server=tcp:revprojectzero.database.windows.net,1433;Initial Catalog=OrBoardDB;Persist Security Info=False;User ID=sqladmin;Password=Password12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

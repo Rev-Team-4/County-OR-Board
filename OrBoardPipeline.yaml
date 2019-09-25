@@ -98,6 +98,8 @@ stages:
 trigger: 
   branches:
     include:
+      - Urey-Azure-SQL-Test
+    exclude: 
       - master
 
               

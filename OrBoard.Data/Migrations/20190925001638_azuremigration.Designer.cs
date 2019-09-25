@@ -10,8 +10,8 @@ using OrBoard.Data;
 namespace OrBoard.Data.Migrations
 {
     [DbContext(typeof(OrBoardDbContext))]
-    [Migration("20190916163744_updatingtables3")]
-    partial class updatingtables3
+    [Migration("20190925001638_azuremigration")]
+    partial class azuremigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
