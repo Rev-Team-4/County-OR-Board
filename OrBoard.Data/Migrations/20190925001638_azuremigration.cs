@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OrBoard.Data.Migrations
 {
-    public partial class migration20190916 : Migration
+    public partial class azuremigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

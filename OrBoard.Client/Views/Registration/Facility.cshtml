@@ -5,97 +5,87 @@
 }
 
 <div style="position: relative; left: 40px;">
-    <h1>Provider Registration</h1>
-    <h2>Give us your details. Note that this is subject to administrator approval. </h2>
-
+    <h4>Facilty Registration</h4>
+    <p><i>Give us your details. Note that this is subject to <a>administrator approval</a>.</i></p>
+    <hr>
     <form action="/Registration/Facility" method="post">
-      <p>
-          <label>Facility Name</label>
-          <input type="text" asp-for="@Model.Name"></br>
-      </p>
-    
-      <p>
-          <label>Address</label>
-          <input type="text" asp-for="@Model.Address"></br>
-      </p>
-    
-      <p>
-          <label>Facility Ownership</label>
-          <input type="text" asp-for="@Model.FacilityOwnership"></br>
-      </p>
-    
-      <p>
-          <label>OR Manager</label>
-          <input type="text" asp-for="@Model.ORManager"></br>
-      </p>
-    
-      <p>
-          <label>OR Manager Email</label>
-          <input type="email" asp-for="@Model.ManagerEmail"></br>
-      </p>
-    
-     <p>
-          <label>Telephone</label>
-          <input type="phone" asp-for="@Model.Telephone"></br>
-     </p>
-    
-      <p>
-          <label>Fax</label>
-          <input type="phone" asp-for="@Model.Fax"></br>
-      </p>
-    
-     <p>
-          <label>License Number</label>
-          <input type="number" asp-for="@Model.LicenseNumber"></br>
-     </p>
-    
-      <p>
-          <label>License Status</label></br>
-          <input type="radio" asp-for="@Model.LicenseStatus" value="true">Active License</br>
-          <input type="radio" asp-for="@Model.LicenseStatus" value="false">Inactive License</br>
-      </p>
-    
-     <p>
-          <label>EIN Number</label>
-          <input type="number" asp-for="@Model.EINNumber"></br>
-     </p>
-    
-      <p>
-          <label>EIN Status</label></br>
-          <input type="radio" asp-for="@Model.EINStatus" value="true">Active License</br>
-          <input type="radio" asp-for="@Model.EINStatus" value="false">Inactive License</br>
-      </p>
-    
-      <p>
-          <label>Facility Type</label>
-          <input type="text" asp-for="@Model.FacilityType"></br>
-      </p>
-    
-      <p>
-          <label>City</label>
-          <input type="text" asp-for="@Model.City"></br>
-      </p>
-    
-      <p>
-          <label>State</label>
-          <input type="text" asp-for="@Model.State"></br>
-      </p>
-    
-      <p>
-          <label>Zip Code</label>
-          <input type="text" asp-for="@Model.ZipCode"></br>
-      </p>
-    
-     <p>
-          <h3>Now let's create a login</h3>
-          
-          <label>User Name</label>
-          <input type="string" asp-for="@Model.UserName"></br>
-          
-          <label>Login Password</label>
+        <h4>Identity:</h4>
+        <div class=class="form-row">
+          <div>          
+            <label>Facility Name:</label>
+            <input type="text" size="50" asp-for="@Model.Name">          
+          <label>Facility Ownership:</label>
+          <input type="text" size="50" asp-for="@Model.FacilityOwnership">
+          </div>
+          <div>
+           <label>Facility Type:</label>
+           <input type="text" size="50" asp-for="@Model.FacilityType">
+          </div>
+        </div>
+        <hr>
+        <h4>Location:</h4>   
+        <div class="form-group form-group-inline">
+          <label>Address:</label>
+          <input type="text" size="42" asp-for="@Model.Address">
+          <label>City:</label>
+          <input type="text" size="30" asp-for="@Model.City">
+          <label>State:</label>
+          <input type="text" size="15" asp-for="@Model.State">
+          <label>Zip Code:</label>
+          <input type="text" size="11" asp-for="@Model.ZipCode">
+        </div>       
+        <hr>
+        <h4>Contact Person:</h4>      
+        <div class="form-group form-group-inline">
+          <label>Manager:</label>
+          <input type="text" size="33" asp-for="@Model.ORManager">
+          <label>Email:</label>
+          <input type="email" size="32" asp-for="@Model.ManagerEmail">
+          <label>Telephone:</label>
+          <input type="phone" size="16" asp-for="@Model.Telephone">
+          <label>Fax:</label>
+          <input type="phone" size="16" asp-for="@Model.Fax">
+        </div>
+        <hr>
+        <div>
+          <div class="form-group form-group-inline">
+            <label>License Number:</label>
+            <input type="number" asp-for="@Model.LicenseNumber">          
+              <div class="form-check form-check-inline">                            
+                <input class="form-check-input" type="radio" asp-for="@Model.LicenseStatus" value="true">
+                <label class="form-check-label">Active<label>
+                </div>
+              <div class="form-check form-check-inline">                
+                <input class="form-check-input" type="radio" asp-for="@Model.LicenseStatus" value="false">
+                <label class="form-check-label">Inactive<label>               
+              </div>
+          </div>
+            <div class="form-group form-group-inline">
+             <label>EIN Number:</label>
+             <input type="number" asp-for="@Model.EINNumber">            
+              <div class="form-check form-check-inline">                       
+                <input class="form-check-input" type="radio" asp-for="@Model.EINStatus" value="true">
+                <label class="form-check-label">Active</label>
+              </div>
+              <div class="form-check form-check-inline">                 
+                <input class="form-check-input" type="radio" asp-for="@Model.EINStatus" value="false">
+                <label class="form-check-label">Inactive</label>
+              </div>
+            </div>      
+        </div>
+        <hr>
+        <h4><i>Now let's create a login</i></h4>          
+        <div class="form-group form-group-inline">                    
+          <label>User Name:</label>
+          <input type="string" size="50" asp-for="@Model.UserName">          
+          <label>Login Password:</label>
           <input type="password" asp-for="@Model.Password">
-     </p>
-    
-      <button type="submit">Submit Information</button>
+        </div>
+        <hr>
+        <div class="form-group">
+            <button class="btn btn-success" type="submit">Submit Information</button>
+            <p><i>By clicking 'Submit Information' you agree to <a href="">Terms and Conditions</a="nav-link>.</i></p>
+        </div> 
+        <hr>     
     </form>
 </div>
