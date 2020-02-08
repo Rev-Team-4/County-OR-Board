@@ -145,6 +145,8 @@ namespace OrBoard.Data.Migrations
                     b.Property<string>("Password")
                         .IsRequired();
 
+                    b.Property<DateTime>("UpdatedDateTime");
+
                     b.Property<string>("UserName")
                         .IsRequired();
 

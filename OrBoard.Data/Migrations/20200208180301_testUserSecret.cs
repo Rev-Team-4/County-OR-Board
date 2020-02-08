@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OrBoard.Data.Migrations
 {
-    public partial class migration20190916 : Migration
+    public partial class testUserSecret : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,8 @@ namespace OrBoard.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     UserName = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
-                    CreationDateTime = table.Column<DateTime>(nullable: false)
+                    CreationDateTime = table.Column<DateTime>(nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

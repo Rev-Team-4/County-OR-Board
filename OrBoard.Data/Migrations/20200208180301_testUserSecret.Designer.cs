@@ -10,8 +10,8 @@ using OrBoard.Data;
 namespace OrBoard.Data.Migrations
 {
     [DbContext(typeof(OrBoardDbContext))]
-    [Migration("20190916163744_updatingtables3")]
-    partial class updatingtables3
+    [Migration("20200208180301_testUserSecret")]
+    partial class testUserSecret
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -146,6 +146,8 @@ namespace OrBoard.Data.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired();
+
+                    b.Property<DateTime>("UpdatedDateTime");
 
                     b.Property<string>("UserName")
                         .IsRequired();
