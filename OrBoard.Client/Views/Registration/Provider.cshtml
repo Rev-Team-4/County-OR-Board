@@ -7,117 +7,92 @@
 
  
 <div style="position: relative; left: 40px;">
-    <h1>Provider Registration</h1>
-    <h2>Give us your details. Note that this is subject to administrator approval. </h2>  
-
-    <form asp-action="/Registration/Provider" method="post">
-      <div class="form-group">
-        <div class="col-md-8">
-          <label>First Name</label>
-          <input type="text" asp-for="@Model.FirstName"></br>
+    <h4>Provider Registration</h4>
+    <p><i>Give us your details. Note that this is subject to <a>administrator approval</a>.</i></p>
+    <hr>
+    <form class="form-group" asp-action="/Registration/Provider" method="post">
+        <h4>Provider Identity:</h4>
+        <div class="form-group">
+          <label>First Name:</label>
+          <input type="text" size="50" asp-for="@Model.FirstName">
+          <label>Last Name:</label>
+          <input type="text" size="50" asp-for="@Model.LastName">          
         </div>
-      </div>
-    
-      <div class="form-group">
-        <div class="col-md-8">
-          <label>Last Name</label>
-          <input type="text" asp-for="@Model.LastName"></br>
+        <hr>
+        <h4>Location:</h4>   
+        <div class="form-group">
+          <label>Address:</label>
+          <input type="text" size="38" asp-for="@Model.StreetAddress">
+          <label>City:</label>
+          <input type="text" size="25" asp-for="@Model.City">
+          <label>State:</label>
+          <input type="text" size="15" asp-for="@Model.State">
+          <label>Zip Code:</label>
+          <input type="text" size="10" asp-for="@Model.Zip">
+        </div>       
+        <hr>
+        <h4>Contacts:</h4>      
+        <div class="form-group">          
+          <label>Email:</label>
+          <input type="email" size="32" asp-for="@Model.Email">
+          <label>Telephone:</label>
+          <input type="phone" size="16" asp-for="@Model.Phone">          
         </div>
-      </div>
-    
-      <div class="form-group">
-        <div class="col-md-8">
-          <label>Email</label>
-          <input type="text" asp-for="@Model.Email"></br>
+        <hr>
+        <h4>Specialty:</h4>
+        <div class="form-check form-check-inline">            
+          <input class="form-check-input" type="radio" asp-for="@Model.Specialty" value="Anesthetist">
+          <label class="form-check-label">Anesthetist</label>
         </div>
-      </div>
-    
-      <div class="form-group">
-        <div class="col-md-8">
-          <label>Phone</label>
-          <input type="text" asp-for="@Model.Phone"></br>
+        <div class="form-check form-check-inline">           
+          <input class="form-check-input" type="radio" asp-for="@Model.Specialty" value="Nurse">
+          <label class="form-check-label">Surgeon</label>
         </div>
-      </div>
-    
-     <div class="form-group">
-       <div class="col-md-8">
-          <label>Street Address</label>
-          <input type="text" asp-for="@Model.StreetAddress"></br>
-       </div>
-     </div>
-    
-      <div class="form-group">
-        <div class="col-md-8">
-          <label>City</label>
-          <input type="text" asp-for="@Model.City"></br>
+        <div class="form-check form-check-inline">           
+          <input class="form-check-input" type="radio" asp-for="@Model.Specialty" value="Surgeon">
+          <label class="form-check-label">Nurse</label>
+        </div>      
+        <hr>
+        <h4>Provider Credentials:</h4>
+        <div>
+          <div class="form-group form-group-inline">
+            <label>License Number:</label>
+            <input type="number" asp-for="@Model.LicenseNumber">          
+              <div class="form-check form-check-inline">                            
+                <input class="form-check-input" type="radio" asp-for="@Model.LicenseStatus" value="true">
+                <label class="form-check-label">Active<label>
+                </div>
+              <div class="form-check form-check-inline">                
+                <input class="form-check-input" type="radio" asp-for="@Model.LicenseStatus" value="false">
+                <label class="form-check-label">Inactive<label>               
+              </div>
+          </div>
+            <div class="form-group form-group-inline">
+             <label>NPI Number:</label>
+             <input type="number" asp-for="@Model.NPINumber">            
+              <div class="form-check form-check-inline">                       
+                <input class="form-check-input" type="radio" asp-for="@Model.NPIStatus" value="true">
+                <label class="form-check-label">Active</label>
+              </div>
+              <div class="form-check form-check-inline">                 
+                <input class="form-check-input" type="radio" asp-for="@Model.NPIStatus" value="false">
+                <label class="form-check-label">Inactive</label>
+              </div>
+            </div>      
         </div>
-      </div>
-    
-      <div class="form-group">
-        <div class="col-md-8">
-          <label>State</label>
-          <input type="text" asp-for="@Model.State"></br>
-        </div>
-      </div>
-    
-      <div class="form-group">
-        <div class="col-md-8">
-          <label>Zip Code</label>
-          <input type="number" asp-for="@Model.Zip"></br>
-        </div>
-      </div>
-    
-      <div class="form-group">
-        <div class="col-md-8">
-          <label>Specialty</label></br>
-          <input type="radio" asp-for="@Model.Specialty" value="Anesthetist">Anesthetist</br>
-          <input type="radio" asp-for="@Model.Specialty" value="Nurse">Nurse</br>
-          <input type="radio" asp-for="@Model.Specialty" value="Surgeon">Surgeon</br>
-        </div>
-      </div>
-    
-      <div class="form-group">
-        <div class="col-md-8">
-          <label>License Number</label>
-          <input type="number" asp-for="@Model.LicenseNumber"></br>
-      </div>
-      </div>
-    
-     <div class="form-group">
-       <div class="col-md-8">
-          <label>License Status</label></br>
-          <input type="radio" asp-for="@Model.LicenseStatus" value="true">Active License</br>
-          <input type="radio" asp-for="@Model.LicenseStatus" value="false">Inactive License</br>
-       </div>
-     </div>
-    
-     <div class="form-group">
-       <div class="col-md-8">
-          <label>NPI Number</label>
-          <input type="number" asp-for="@Model.NPINumber">
-        </div>  
-     </div>
-    
-      <div class="form-group">
-        <div class="col-md-8">
-          <label>NPI Status</label></br>
-          <input type="radio" asp-for="@Model.NPIStatus" value="true">Active License</br>
-          <input type="radio" asp-for="@Model.NPIStatus" value="false">Inactive License</br>
-        </div> 
-      </div>
-      
-      <h5>Now let's create a login</h5>
-      
-      <div class="form-group">
-        <div class="col-md-8">
-          <label>User Name</label>
-          <input type="string" asp-for="@Model.UserName"></br>
-          <label>Login Password</label>
+        <hr>
+        <h4><i>Now let's create a login</i></h4>          
+        <div class="form-group">                    
+          <label>User Name:</label>
+          <input type="string" size="50" asp-for="@Model.UserName">          
+          <label>Login Password:</label>
           <input type="password" asp-for="@Model.Password">
-        </div>  
-      </div>
-    
-      <button type="submit">Submit Information</button>
-     
+        </div>
+        <hr>
+        <div class="form-group">
+            <button class="btn btn-success" type="submit">Submit Information</button>
+            <p><i>By clicking 'Submit Information' you agree to <a href="">Terms and Conditions</a="nav-link>.</i></p>
+        </div> 
+        <hr>     
     </form>
 </div>
