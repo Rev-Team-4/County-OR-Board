@@ -5,10 +5,6 @@ namespace OrBoard.Tests
 {
     public class OperatingRoomViewModelTests
     {
-        [Fact]
-        public void Test1()
-        {
 
-        }
     }
 }

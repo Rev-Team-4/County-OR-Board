@@ -7,12 +7,6 @@ namespace OrBoard.Tests
 {
     public class HospitalRegisterViewModelTests
     {
-        [Fact]
-        public void ReadFromDB()
-        {
-          //var OrBoard = new OrBoardDbContext();
 
-
-        }
     }
 }
