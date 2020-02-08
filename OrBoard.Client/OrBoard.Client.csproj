@@ -4,6 +4,7 @@
     <DebugType>Full</DebugType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <UserSecretsId>8d3206e3-dde7-46a1-b225-f45d41d8f000</UserSecretsId>
   </PropertyGroup>
 
 
@@ -11,6 +12,7 @@
     <PackageReference Include="microsoft.aspnetcore" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="2.2.6" />
   </ItemGroup>
 
 
