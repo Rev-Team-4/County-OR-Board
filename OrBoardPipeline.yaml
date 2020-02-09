@@ -1,10 +1,5 @@
 name: ($date:yyyyMMdd)$(rev:.rr) 
 
-variables: 
-  - name: groupOrganization
-  - name: organization
-  - name: loginToken
-
 stages: 
   - stage: 'build' 
     condition: succeeded() 
