@@ -1,5 +1,10 @@
 name: ($date:yyyyMMdd)$(rev:.rr) 
 
+#Parameters: 
+ #Sonarcloud-ProjectID, Organization, Token
+ #Docker-Repository ID
+ #Azure Web App: Subscription ID
+
 stages: 
   - stage: 'build' 
     condition: succeeded() 
@@ -34,10 +39,10 @@ stages:
               version: '2.2.401'
           - script: | 
               dotnet tool install --global dotnet-sonarscanner
-              dotnet sonarscanner begin /k:$(groupOrganization) /o:$(organization) /d:sonar.login=$(loginToken) /d:sonar.host.url="https://sonarcloud.io"
+              dotnet sonarscanner begin /k:$(sonarProjectID) /o:$(sonarOrganization) /d:sonar.login=$(sonarToken) /d:sonar.host.url="https://sonarcloud.io"
               dotnet build
               dotnet test --logger trx -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=\"cobertura,opencover\" -p:Exclude=[xunit*]*
-              dotnet sonarscanner end /d:sonar.login=$(loginToken)
+              dotnet sonarscanner end /d:sonar.login=$(sonarToken)
           - task: PublishTestResults@2
             displayName: 'publish result::unit-test'
             inputs:
@@ -48,7 +53,7 @@ stages:
             inputs:
               codeCoverageTool: cobertura
               summaryFileLocation: '**/coverage.cobertura.xml'
-#Update dockerfile
+
   - stage: 'pack' 
     condition: succeeded() 
     dependsOn: 
@@ -68,8 +73,8 @@ stages:
             displayName: 'docker login'
           - script: |
               docker image build --file Dockerfile --tag boardor .
-              docker image tag boardor uchan3/boardor
-              docker push uchan3/boardor
+              docker image tag boardor $(dockerRepository)
+              docker push $(dockerRepository)
           - task: Docker@2
             inputs:
               command: 'logout'
@@ -91,9 +96,9 @@ stages:
         steps: 
           - task: AzureWebAppContainer@1
             inputs:
-              azureSubscription: 'Revature(41685a64-c080-4858-a663-06f43f898374)'
+              azureSubscription: $(azureSubscriptionID)
               appName: 'RBoardOR'
-              containers: 'uchan3/boardor' 
+              containers: $(dockerRepository)
 
 trigger: 
   branches:
