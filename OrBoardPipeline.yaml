@@ -96,7 +96,7 @@ stages:
         steps: 
           - task: AzureWebAppContainer@1
             inputs:
-              azureSubscription: '$(azureSubscriptionID)'
+              azureSubscription: 'Revature(41685a64-c080-4858-a663-06f43f898374)'
               appName: 'RBoardOR'
               containers: '$(dockerRepository)'
 
