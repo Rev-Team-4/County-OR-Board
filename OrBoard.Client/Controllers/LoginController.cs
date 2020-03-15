@@ -8,7 +8,15 @@ namespace OrBoard.Client.Controllers
     public class LoginController : Controller
     {
         public static int LoggedInUser;
-        private OrBoardDbContext _db = new OrBoardDbContext();
+        //private OrBoardDbContext _db = new OrBoardDbContext();
+
+        //Since we use AddDbContext, need to inject db into controller. 
+        private OrBoardDbContext _db;
+        public LoginController(OrBoardDbContext db)
+        {
+          _db = db; 
+        }
+
         public static Login Login { get; set; }
 
         public IActionResult Index()

@@ -27,9 +27,10 @@ namespace OrBoard.Data
 
         }
 
+        // Comment user secrets. 
         // protected override void OnConfiguring(DbContextOptionsBuilder builder)
         // {
-        //     //builder.UseSqlServer("server=localhost;initial catalog=OrBoardDB;user id=sa;password=Password12345;");
+        //     builder.UseSqlServer("server=localhost;initial catalog=OrBoardDB;user id=sa;password=Password12345;");
         // }
 
         protected override void OnModelCreating(ModelBuilder builder)

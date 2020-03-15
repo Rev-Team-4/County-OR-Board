@@ -11,5 +11,7 @@ RUN dotnet publish OrBoard.Client.csproj --no-restore -c Release -o /app
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 WORKDIR /deploy
+# Expose is necessary so containers can talk with each other. 
+EXPOSE 80 
 COPY --from=publishstage /app .
 CMD ["dotnet", "OrBoard.Client.dll"]

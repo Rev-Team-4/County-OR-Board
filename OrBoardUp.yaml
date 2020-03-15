@@ -1,0 +1,28 @@
+version: "3.7"
+
+networks: 
+  county:
+
+services: 
+  web:
+    build: .
+    # Context defines path to directory containing Dockerfile. (. refers to current working directory)
+    # For now, we are going to build first before updating image. 
+    ports:
+      - "10080:80"
+    networks:
+      - county
+    container_name: County_BoardOr
+    depends_on: 
+      - db
+  db: 
+    image: "mcr.microsoft.com/mssql/server:2017-latest"
+    ports: 
+      - "1433:1433"
+    networks:
+      - county
+    environment: 
+      #TODO: Place password within environment file
+      SA_PASSWORD: "Placeholder"
+      ACCEPT_EULA: "Y"
+    
