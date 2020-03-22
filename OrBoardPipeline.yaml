@@ -37,8 +37,9 @@ stages:
             displayName: 'dotnet installer'
             inputs: 
               version: '2.2.401'
-          - script: >
+          - script: 
               dotnet tool install --global dotnet-sonarscanner
+
               dotnet sonarscanner begin /k:$(sonarProjectID) /o:$(sonarOrganization)
               /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml
               /d:sonar.cs.vstest.reportsPaths=**/*.trx
@@ -51,7 +52,7 @@ stages:
               -p:CoverletOutput=TestResults/
               -p:CoverletOutputFormat=\"cobertura,opencover\"
               -p:Exclude=[xunit*]*
-              
+
               dotnet sonarscanner end /d:sonar.login=$(sonarToken)
           - task: PublishTestResults@2
             displayName: 'publish result::unit-test'
