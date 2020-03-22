@@ -38,7 +38,7 @@ stages:
             inputs: 
               version: '2.2.401'
           - script: | 
-              dotnet tool install --global dotnet-sonarscanner \
+              dotnet tool install --global dotnet-sonarscanner
               dotnet sonarscanner begin /k:$(sonarProjectID) /o:$(sonarOrganization) \
               /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml \
               /d:sonar.cs.vstest.reportsPaths=**/*.trx \
