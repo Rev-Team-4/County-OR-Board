@@ -40,9 +40,6 @@ stages:
           - script: | 
               dotnet tool install --global dotnet-sonarscanner
               dotnet sonarscanner begin /k:$(sonarProjectID) /o:$(sonarOrganization) 
-              #The following 2 properties indicate where to locate reports to publish to SonarCloud. 
-              /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml
-              /d:sonar.cs.vstest.reportsPaths=**/*.trx
               /d:sonar.login=$(sonarToken) /d:sonar.host.url="https://sonarcloud.io"
               dotnet build
               dotnet test --logger trx -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=\"cobertura,opencover\" -p:Exclude=[xunit*]*
